@@ -46,7 +46,7 @@ public class Task
       setEstimatedHours(estimatedHours);
       this.team=new Team();
       setHoursSpent(0);
-      setStatus(status.NOTSTARTED);
+      setStatus(Status.NOTSTARTED);
     }
   }
   /**
