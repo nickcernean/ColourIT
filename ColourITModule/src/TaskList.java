@@ -11,17 +11,34 @@ import java.util.ArrayList;
 public class TaskList
 {
   private ArrayList<Task> tasks;
-  private Team team;
-
-
+  private Task task;
 
   /**
    * A 0 argument constructor initializing the Task arraylist
    */
   public TaskList()
   {
-    tasks = new ArrayList<>();
-    this.team = new Team();
+    this.tasks = new ArrayList<>();
+
+  }
+
+  /**
+   * A method returning a task by index
+   *
+   * @param index index of a task
+   * @return a task
+   */
+  public Task getTaskByIndex(int index)
+  {
+    Task task = null;
+    for (int i = 0; i < tasks.size(); i++)
+    {
+      if (tasks.get(i).equals(index))
+      {
+        task = tasks.get(i);
+      }
+    }
+    return task;
   }
 
   /**
@@ -190,7 +207,8 @@ public class TaskList
         {
           return i.getStatus();
         }
-        else throw new IllegalArgumentException("Illegal task ID");
+        else
+          throw new IllegalArgumentException("Illegal task ID");
       }
     }
     throw new IllegalArgumentException("Try again");
@@ -246,16 +264,6 @@ public class TaskList
     }
     return active;
   }
-/*To be implemented */
-//  public ArrayList<Task> getUnassignedTasks()
-//  {
-//    ArrayList<Task> tasksList = new ArrayList<>();
-//    for (int i = 0; i < tasks.size(); i++)
-//    {
-//      if(tasks.get(i).equals())
-//
-//    }
-//  }
 
 
 }

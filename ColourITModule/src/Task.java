@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class Task
 {
   private String taskID;
-  private Requirement requirementID;
+  private RequirementList requirementID;
   private String labelName;
   private String description;
   private double estimatedHours;
@@ -30,7 +30,7 @@ public class Task
    * @param deadline       - by when it should be finished
    * @param estimatedHours - in how many hours you should approximately finish it
    */
-  public Task(String taskID, Requirement requirementID, String labelName,
+  public Task(String labelName,String taskID, String requirementID,
       String description, Date deadline, int estimatedHours, Status status)
   {
     if (taskID != null && !taskID.equals("") && requirementID != null
@@ -39,7 +39,7 @@ public class Task
         && deadline != null && estimatedHours >= 0)
     {
       setTaskID(taskID);
-      this.requirementID = requirementID;
+      this.requirementID.getRequirementByID(requirementID);
       setLabelName(labelName);
       setDeadline(deadline);
       setDescription(description);

@@ -51,7 +51,7 @@ public class TeamMember
   public String getName()
   {
     return name;
-  }
+  } /* tested*/
 
   /**
    * Sets a new team member name
@@ -61,7 +61,7 @@ public class TeamMember
   public void setName(String name)
   {
     this.name = name;
-  }
+  } /* tested*/
 
   /**
    * Returns team member ID
@@ -71,14 +71,14 @@ public class TeamMember
   public String getTeamMemberID()
   {
     return teamMemberID;
-  }
+  } /* tested*/
 
   /**
    * Sets a new ID of a team member
    *
    * @param teamMemberID -edit ID of a team member
    */
-  public void setTeamMemberID(String teamMemberID)
+  public void setTeamMemberID(String teamMemberID)  /* tested*/
   {
     if (teamMemberID.length() == 4)
     {
@@ -86,7 +86,7 @@ public class TeamMember
     }
     else
     {
-      throw new IllegalArgumentException("The ID must contain 4 characters");
+      throw new IllegalArgumentException("The team member ID must contain 4 characters");
     }
   }
 
@@ -98,19 +98,19 @@ public class TeamMember
   public Email getEmail()
   {
     return email;
-  }
+  }  /* tested*/
 
   /**
    * Sets/edits a new email of a team member
    *
    * @param newEmail -edit the email of a team member
    */
-  public void setEmail(Email newEmail)
+  public void setEmail(Email newEmail)  /* tested*/
   {
     if (isEmailValid(newEmail))
       this.email = newEmail;
     else
-      throw new IllegalArgumentException("Illegal input, try again");
+      throw new IllegalArgumentException("Illegal email input, try again");
   }
 
   /**
@@ -122,7 +122,7 @@ public class TeamMember
   public Role getRole()
   {
     return role;
-  }
+  }  /* tested*/
 
   /**
    * Sets a role for a team member
@@ -133,7 +133,7 @@ public class TeamMember
   public void setRole(Role role)
   {
     this.role = role;
-  }
+  }  /* tested*/
 
   /**
    * Returns how long the employee has worked in this field
@@ -143,14 +143,14 @@ public class TeamMember
   public int getYearsOfExperience()
   {
     return yearsOfExperience;
-  }
+  }  /* tested*/
 
   /**
    * Updates/Sets a new year of a team member worked in this field
    *
    * @param newYears -sets/updates years of experience
    */
-  public void setYearsOfExperience(int newYears)
+  public void setYearsOfExperience(int newYears)  /* tested*/
   {
     this.yearsOfExperience = newYears;
   }
@@ -162,8 +162,8 @@ public class TeamMember
    */
   public Date getBirthdate()
   {
-    return birthdate;
-  }
+    return birthdate.copy();
+  }  /* tested*/
 
   /**
    * Checks if the given email is valid
@@ -171,7 +171,7 @@ public class TeamMember
    * @param email - email you give to check if it is valid
    * @return true or false which equals to valid or not valid
    */
-  public boolean isEmailValid(Email email)
+  public boolean isEmailValid(Email email)  /* tested*/
   {
     if (email.toString().equals("Wrong format"))
     {
@@ -187,7 +187,7 @@ public class TeamMember
    * @param obj any object
    * @return same object or not
    */
-  @Override public boolean equals(Object obj)
+  @Override public boolean equals(Object obj)  /* tested*/
   {
     if (!(obj instanceof TeamMember))
     {
@@ -222,7 +222,7 @@ public class TeamMember
    *
    * @return all information about a team member
    */
-  @Override public String toString()
+  @Override public String toString()  /* tested*/
   {
     return "TeamMember:" + "name='" + name + '\'' + ", teamMemberID='"
         + teamMemberID + '\'' + ", yearsOfExperience=" + yearsOfExperience

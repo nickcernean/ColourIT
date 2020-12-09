@@ -1,10 +1,10 @@
 import java.util.ArrayList;
-
 /**
  * A class representing a Requirement
  *
  * @author Nichita Railean
- * @version 1.0 3dec
+ * @author Nicolae Cernean(edited)
+ * @version 001.2 2020-12-07
  */
 
 public class Requirement
@@ -18,7 +18,8 @@ public class Requirement
   private String requirementID;
   private UserStory description;
   private Status status;
-  private Team team;
+  private ArrayList<Task> tasks;
+  private ArrayList<TaskList> taskLists;
   private TaskList taskList;
 
   /**
@@ -48,11 +49,32 @@ public class Requirement
       setDescription(description);
       setDeadline(deadline);
       setOrderNum(orderNum);
-      this.status=status.NOTSTARTED;
-      this.team = new Team();
+      this.status = status.NOTSTARTED;
       this.taskList = new TaskList();
+      this.tasks=new ArrayList<>();
+      this.taskLists=new  ArrayList<>();
     }
 
+  }
+
+  /**
+   * A method adding a task to requirement
+   *
+   * @param task added to the reuirement
+   */
+  public void addTask(Task task)
+  {
+    tasks.add(task);
+  }
+
+  /**
+   * A method adding a taskList to the requirement
+   *
+   * @param taskList added to the reuirement
+   */
+  public void addTaskList(TaskList taskList)
+  {
+    taskLists.add(taskList);
   }
 
   /**
@@ -95,10 +117,12 @@ public class Requirement
    */
   public void setRequirementID(String newID)
   {
-    if (newID != null && !(newID.equals("")))
+    if (newID != null && !(newID.equals("")) && newID.length() == 5)
     {
       requirementID = newID;
     }
+    else { throw new IllegalArgumentException(
+        "The requirement ID must contain 5 characters");}
   }
 
   /**
@@ -248,16 +272,14 @@ public class Requirement
    * @return array with responsible team members
    */
   /*To be edited/errors pops-up*/
-//  public TeamMember[] GetResponsibleTeam()
-//  {
-//    TeamMember[] responsibleTeam = new TeamMember[team.totalNumberOfTeamMembers()];
-//    for (int i = 0; i < team.totalNumberOfTeamMembers(); i++)
-//    {
-//      responsibleTeam[i] = team.;
-//    }
-//    return responsibleTeam;
-//  }
-
-
+  //  public TeamMember[] GetResponsibleTeam()
+  //  {
+  //    TeamMember[] responsibleTeam = new TeamMember[team.totalNumberOfTeamMembers()];
+  //    for (int i = 0; i < team.totalNumberOfTeamMembers(); i++)
+  //    {
+  //      responsibleTeam[i] = team.;
+  //    }
+  //    return responsibleTeam;
+  //  }
 
 }

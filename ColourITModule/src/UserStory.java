@@ -7,20 +7,20 @@
 public class UserStory
 {
   private String what;
-  private String why;
+  private String how;
   private String who;
 
   /**
    *  A 3 argument constructor creating an UserStory
    * @param what what
-   * @param why why
+   * @param how how
    * @param who who
    *
    */
 
-  public UserStory (String what, String why, String who ) {
+  public UserStory (String what, String how, String who ) {
     this.what = what;
-    this.why = why;
+    this.how = how;
     this.who = who;
   }
 
@@ -32,7 +32,7 @@ public class UserStory
 
   public UserStory (String what){
     this.what = what;
-    this.why = "";
+    this.how = "";
     this.who = "";
   }
 
@@ -42,7 +42,7 @@ public class UserStory
    */
 
   public UserStory copy(){
-    UserStory other = new UserStory(what, why, who);
+    UserStory other = new UserStory(what, how, who);
     return other;
   }
 }

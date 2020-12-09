@@ -2,6 +2,7 @@
  * Team class to store a list of Team Members
  *
  * @author Joseph Carroll
+ * @author Nicolae Cernean(edited)
  * @version 1.1 2020-12-07
  */
 import java.util.ArrayList;
@@ -10,7 +11,6 @@ public class Team
 {
 
   private ArrayList<TeamMember> team;
-  //  private ArrayList<TaskList> teamMemberTaskList;
   private TaskList taskList;
 
   /**
@@ -167,6 +167,11 @@ public class Team
       return birthdayList;
   }
 
+  /**
+   * Returns the scrum master from team
+   *
+   * @return returns the scrum master
+   */
   public TeamMember getScrumMaster()
   {
     for (int i = 0; i < team.size(); i++)
@@ -178,7 +183,11 @@ public class Team
     throw new IllegalArgumentException(
         "Please assign a scrum master to this project");
   }
-
+  /**
+   * Returns the product owner from team
+   *
+   * @return returns the product owner
+   */
   public TeamMember getProductOwner()
   {
     for (int i = 0; i < team.size(); i++)
@@ -191,14 +200,24 @@ public class Team
         "Please assign a product owner to this project");
   }
 
+  /**
+   * Assigns a task to a team member by his teamMemberID
+   *
+   * @param taskID the task ID
+   * @param teamMemberID the team member ID
+   */
   public void assignTaskToATeamMember(String taskID, String teamMemberID)
   {
-    ArrayList<Task> teamMemberTaskList = new ArrayList<>();
     getTeamMembersByID(teamMemberID)
         .addTaskToList(taskList.getTaskByID(taskID));
   }
 
-  public ArrayList<Task>  getTeamMemberTasks(String teamMemberID)
+  /**
+   * Returns all the tasks of a team member
+   *
+    * @param teamMemberID the team member ID
+   */
+  public ArrayList<Task> getTeamMemberTasks(String teamMemberID)
   {
    return getTeamMembersByID(teamMemberID).getTeamMemberTaskList();
   }
