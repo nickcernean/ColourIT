@@ -1,8 +1,13 @@
 import java.util.ArrayList;
-
+/**
+ * @author Nicolae Cernean
+ * @version 1.001 Nicolae
+ * @version 1.002 Rokas
+ * deleted instance variable Project Project ID not used.
+ */
 public class RequirementList
 {
-  private Project projectID;
+ // private Project projectID;
   private ArrayList<Requirement> requirements;
 
   public RequirementList()

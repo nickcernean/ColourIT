@@ -4,6 +4,8 @@ import java.util.ArrayList;
  *
  * @author Nicolae Cernean
  * @version 1.1 2020-12-07
+ * @version 1.11 2020-12-10 Rokas
+ * Deleted exception at getProjectByID it was ending the for loop prematurely
  */
 public class ProjectList
 {
@@ -41,7 +43,6 @@ public class ProjectList
       {
         project = projects.get(i);
       }
-      throw new IllegalArgumentException("Invalid Project ID");
     }
     return project;
   }

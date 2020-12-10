@@ -6,12 +6,15 @@ import java.util.ArrayList;
  * @author Nichita Railean
  * @author Nicolae Cernean(edited)
  * @version 001.2 2020-12-07
+ * @version 001.3 2020-12-10
+ * v001.3 notes
+ * deleted Task task instance variable
  */
 
 public class TaskList
 {
   private ArrayList<Task> tasks;
-  private Task task;
+  //private Task task;
 
   /**
    * A 0 argument constructor initializing the Task arraylist

@@ -5,6 +5,8 @@ import java.util.ArrayList;
  * @author Nichita Railean
  * @author Nicolae Cernean(edited)
  * @version 001.2 2020-12-07
+ * @version 001.3 2020-12-10 Rokas
+ * 001.3 notes turned off status instance variable not needed, cause requirement status is automatic
  */
 
 public class Requirement
@@ -17,7 +19,7 @@ public class Requirement
   private int orderNum;
   private String requirementID;
   private UserStory description;
-  private Status status;
+ // private Status status;
   private ArrayList<Task> tasks;
   private ArrayList<TaskList> taskLists;
   private TaskList taskList;
@@ -49,7 +51,7 @@ public class Requirement
       setDescription(description);
       setDeadline(deadline);
       setOrderNum(orderNum);
-      this.status = status.NOTSTARTED;
+    //  this.status = status;
       this.taskList = new TaskList();
       this.tasks=new ArrayList<>();
       this.taskLists=new  ArrayList<>();

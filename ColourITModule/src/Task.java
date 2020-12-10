@@ -141,7 +141,8 @@ public class Task {
      * @param newName - new task name
      */
     public void setLabelName(String newName){
-      labelName=newName;
+      if(newName!=null && !newName.equals("")){
+      labelName=newName;}
   }
     /**
      * set task to finished state
@@ -154,7 +155,7 @@ public class Task {
      * @param newDescription - new task description, change.
      */
     public void setDescription(String newDescription){
-        if(description!=null && !description.equals("")){ description=newDescription;
+        if(newDescription!=null && !newDescription.equals("")){ description=newDescription;
     }}
 
     /**
@@ -210,10 +211,10 @@ public class Task {
     }
     @Override public String toString()
     {
-      return "Task:" + "taskID='" + taskID + ", requirementID="
-          + requirementID + ", labelName='" + labelName + ", description='"
-          + description + ", estimatedHours=" + estimatedHours
-          + ", deadline=" + deadline + ", hoursSpent=" + hoursSpent + ", status="
-          + status;
+      return "Task:" + "taskID='" + taskID + "', requirementID="
+          + requirementID + "', labelName='" + labelName + "', description='"
+          + description + "', estimatedHours=" + estimatedHours
+          + "', deadline=" + deadline + "', hoursSpent=" + hoursSpent + "', status="
+          + status+"'";
     }
   }

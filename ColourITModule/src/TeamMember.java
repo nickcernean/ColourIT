@@ -228,8 +228,8 @@ public class TeamMember
    */
   @Override public String toString()  /* tested*/
   {
-    return "TeamMember:" + "name='" + name + '\'' + ", teamMemberID='"
-        + teamMemberID + '\'' + ", yearsOfExperience=" + yearsOfExperience
-        + ", email=" + email + ", birthdate=" + birthdate + ", role=" + role;
+    return "TeamMember:" + "name='" + name + "', teamMemberID='"
+        + teamMemberID + "', yearsOfExperience=" + yearsOfExperience
+        + "', email='" + email + "', birthdate='" + birthdate + "', role='" + role + "'";
   }
 }

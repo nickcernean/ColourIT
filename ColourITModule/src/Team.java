@@ -4,8 +4,8 @@
  * @author Joseph Carroll
  * @author Nicolae Cernean(edited)
  * @version 1.1 2020-12-07
- * @version 1.101 2020-12-10 Rokas
- * notes
+ * @version 1.11 2020-12-10 Rokas
+ * version 1.11 notes
  * added toString method, 
  * renamed removeTeamMember(String teamMemberID)  to removeTeamMemberByID(String teamMemberID)
  * Created new removeTeamMember(TeamMember teamMember) method

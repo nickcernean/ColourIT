@@ -4,6 +4,9 @@ import java.util.ArrayList;
  *
  * @author Nicolae Cernean
  * @version 1.1 2020-12-07
+ * @version 1.11 2020-12-10 Rokas
+ * verison 1.11 turned off instance variable teamProject cause it's an aray list of aray list of teams?
+ * deleted addATeam
  */
 public class Project
 {
@@ -17,7 +20,7 @@ public class Project
   private Status status;
   private TeamMember teamMember;
   private TaskList taskList;
-  private ArrayList <Team>teamProject;
+ // private ArrayList <Team>teamProject;
 
   /**
    * Creating a project with all
@@ -42,7 +45,7 @@ public class Project
     updateProjectStatus(Status.NOTSTARTED);
     this.requirementList = new RequirementList();
    this.taskList = new TaskList();
-   this.teamProject = new ArrayList();
+   //this.teamProject = new ArrayList();
   }
 
   /**
@@ -60,10 +63,10 @@ public class Project
    *
    * @param team added to the project
    */
-  public void addATeam(Team team)
+ /* public void addATeam(Team team)
   {
      teamProject.add(team);
-  }
+  }*/
   /**
    * Edit/Updates projects name
    *
