@@ -39,7 +39,7 @@ public class Project
     setDeadline(deadline);
     setEstimatedHours(estimatedHours);
     this.team = new Team();
-    updateProjectStatus(status.NOTSTARTED);
+    updateProjectStatus(Status.NOTSTARTED);
     this.requirementList = new RequirementList();
    this.taskList = new TaskList();
    this.teamProject = new ArrayList();

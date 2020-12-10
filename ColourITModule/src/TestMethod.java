@@ -2,7 +2,7 @@ public class TestMethod
 {
   public static void main(String[] args)
   {
-    TeamMember member1=new TeamMember("Cernean Nicoale","0001",new Email("nicolaecer","gmail","com"),3,new Date(29,11,2000),Role.TEAM_MEMBER);
+    /*TeamMember member1=new TeamMember("Cernean Nicoale","0001",new Email("nicolaecer","gmail","com"),3,new Date(29,11,2000),Role.TEAM_MEMBER);
     TeamMember member2=new TeamMember("Joseph Carroll","0002",new Email("josephcar","yahoo","com"),5,new Date(18,12,1996),Role.TEAM_MEMBER);
     TeamMember member3=new TeamMember("Rokas Paulaskas","0003",new Email("rokaspau","mail","ru"),3,new Date(3,2,2001),Role.TEAM_MEMBER);
     TeamMember member4=new TeamMember("Nichita Railean","0004",new Email("nichitarai","yahoo","com"),6,new Date(8,5,2002),Role.TEAM_MEMBER);
@@ -14,8 +14,13 @@ public class TestMethod
     team1.addNewTeamMember(member2);
     team1.addNewTeamMember(member3);
     team1.addNewTeamMember(member4);
-    team1.addNewTeamMember(member5);
-
+    team1.addNewTeamMember(member5);*/
+    Task task1 = new Task("1","2","Newtask1","taskdescription",new Date(),20,Status.NOTSTARTED);
+    System.out.println(task1);
+    task1.assignTeamMember(new TeamMember("Rokas","2511",new Email("rokas","gmail","com"),8,new Date(),Role.SCRUM_MASTER));
+    System.out.println(task1.getResponsibleTeamMembers());
+    task1.assignTeamMember(new TeamMember("Nichita","2511",new Email("rokas","gmail","com"),8,new Date(),Role.SCRUM_MASTER));
+    System.out.println(task1.getResponsibleTeamMembers());
 //    member1.setName(" John Travolta");
 //    System.out.println(member1.getName());
 //    member1.setTeamMemberID("1001");

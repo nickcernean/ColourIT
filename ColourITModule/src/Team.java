@@ -4,6 +4,12 @@
  * @author Joseph Carroll
  * @author Nicolae Cernean(edited)
  * @version 1.1 2020-12-07
+ * @version 1.101 2020-12-10 Rokas
+ * notes
+ * added toString method, 
+ * renamed removeTeamMember(String teamMemberID)  to removeTeamMemberByID(String teamMemberID)
+ * Created new removeTeamMember(TeamMember teamMember) method
+ * 
  */
 import java.util.ArrayList;
 
@@ -34,15 +40,26 @@ public class Team
   }
 
   /**
-   * Removes a team member from a team
+   * Removes a team member from a team given by id
    *
    * @param teamMemberID - team member to be removed
    */
-  public void removeTeamMember(String teamMemberID)
+  public void removeTeamMemberByID(String teamMemberID)
   {
     team.remove(getTeamMembersByID(teamMemberID));
   }
-
+  /**
+   * Removes a given team member by selected team member
+   * @param teamMember - selected team member
+   */
+  public void removeTeamMember(TeamMember teamMember){
+    if(teamMember!=null){
+      for(int i=0;i<team.size();i++){
+          if(team.get(i).equals(teamMember)){
+              team.remove(i);
+          }
+      }}
+  }
   /**
    * Gets the number of team members in a team
    *
@@ -220,5 +237,16 @@ public class Team
   public ArrayList<Task> getTeamMemberTasks(String teamMemberID)
   {
    return getTeamMembersByID(teamMemberID).getTeamMemberTaskList();
+  }
+  /**
+   * Prints out team members
+   */
+  @Override
+  public String toString (){
+    String text="";
+    for (int i=0;i<team.size();i++){
+        text+= team.get(i) + "\n";
+    }
+    return text;
   }
 }
