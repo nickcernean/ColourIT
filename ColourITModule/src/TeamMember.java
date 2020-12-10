@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * @version 1.002 2020-12-07 Nicolae
  * @version 1.003 2020-12-10 Rokas
  * version 1.003 notes
- * construct role setter in version 2 was always setting Team_Member role and was not taking the input from the constructor fixed
+ * constructor role setter from version 2 was always setting Team_Member role and was not taking the input from the constructor fixed
  */
 public class TeamMember
 {

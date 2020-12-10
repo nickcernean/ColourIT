@@ -2,274 +2,212 @@ import java.util.ArrayList;
 
 /**
  * A class representing a Task list
- *
  * @author Nichita Railean
- * @author Nicolae Cernean(edited)
- * @version 001.2 2020-12-07
- * @version 001.3 2020-12-10
- * v001.3 notes
- * deleted Task task instance variable
+ * @version 1.0 3dec
+ * @version 1.1 10dec
+ *
+ * Changed getTaskBy Id bc it was comparing object with number
+ * Changed add task, bc u can't create a task outside a task list
+ * Removed 2 illegal exeptions that don't work
+ * DON'T FACKING TOUCH IT
  */
 
 public class TaskList
 {
-  private ArrayList<Task> tasks;
-  //private Task task;
+    private ArrayList<Task> tasks;
 
-  /**
-   * A 0 argument constructor initializing the Task arraylist
-   */
-  public TaskList()
-  {
-    this.tasks = new ArrayList<>();
+    /**
+     * A 0 argument constructor initializing the Task array
+     */
 
-  }
-
-  /**
-   * A method returning a task by index
-   *
-   * @param index index of a task
-   * @return a task
-   */
-  public Task getTaskByIndex(int index)
-  {
-    Task task = null;
-    for (int i = 0; i < tasks.size(); i++)
-    {
-      if (tasks.get(i).equals(index))
-      {
-        task = tasks.get(i);
-      }
+    public TaskList (){
+        tasks = new ArrayList<Task>();
     }
-    return task;
-  }
 
-  /**
-   * A method adding a task to tasklist
-   *
-   * @param task -the task
-   */
-  public void addTask(Task task)
-  {
-    tasks.add(task);
-  }
-
-  /**
-   * A method returning an array with all requiremnt tasks
-   *
-   * @param requirementID the requirement id
-   * @return the array
-   */
-  public Task[] getAllRequirementTask(String requirementID)
-  {
-    Task[] taskarray = new Task[tasks.size()];
-    for (int i = 0; i < tasks.size(); i++)
-    {
-      if (tasks.get(i).getRequirementID().equals(requirementID))
-      {
-        taskarray[i] = tasks.get(i);
-      }
+    /**
+     * A method returning a task by index
+     * 
+     * @param index index of a task
+     * @return the task by index
+     */
+    public Task getTaskByIndex(int index){
+        return tasks.get(index);
     }
-    return taskarray;
-  }
 
-  /**
-   * A method setting the deadline of a task by id
-   *
-   * @param taskID      the id of a task
-   * @param newDeadline the new deadline
-   */
-  public void setDeadlineOfATask(String taskID, Date newDeadline)
-  {
-    if (taskID != null && !(taskID.equals("") && newDeadline != null))
-    {
-      for (Task i : tasks)
-      {
-        if (i.getTaskID().equals(taskID))
-        {
-          i.setDeadline(newDeadline);
+    /**
+     * A method to ad tasks to the task array, after creating a task
+     * @param taskID the task id
+     * @param requirementID the requirement id
+     * @param labelName the label name
+     * @param description the task description
+     * @param deadline the task deadline
+     * @param estimatedHours the estimated hours for the task
+     */
+    public void addTask(String taskID, String requirementID, String labelName, String description, Date deadline, int estimatedHours, Status status){
+      Task other = new Task(taskID,requirementID,labelName,description,deadline,estimatedHours,status);
+      tasks.add(other);             
+    }
+
+    /**
+     * A method returning an array with all requiremnt tasks
+     * @param requirementID the requirement id
+     * @return the array
+     */
+    public Task[] getAllRequirementTask(String requirementID){
+        Task[] taskarray = new Task[tasks.size()];
+        for (int i = 0; i < tasks.size(); i++){
+            if(tasks.get(i).getRequirementID().equals(requirementID)){
+                taskarray [i] = tasks.get(i);
+            }
         }
-      }
+        return taskarray;
     }
-  }
 
-  /**
-   * A method setting the estimated hours of a task by id
-   *
-   * @param taskID         the id of a task
-   * @param estimatedHours the new estimated hours
-   */
-  public void setEstimatedHoursOfATask(String taskID, int estimatedHours)
-  {
-    if (taskID != null && !(taskID.equals("") && estimatedHours >= 0))
-    {
-      for (Task i : tasks)
-      {
-        if (i.getTaskID().equals(taskID))
-        {
-          i.setEstimatedHours(estimatedHours);
+    /**
+     * A method setting the deadline of a task by id
+     * @param taskID the id of a task
+     * @param newdeadline the new deadline
+     */
+    public void setDeadlineOfATask(String taskID, Date newdeadline){
+        if(taskID != null && !(taskID.equals("") && newdeadline != null )){
+            for(Task i : tasks){
+                if (i.getTaskID().equals(taskID)){
+                    i.setDeadline(newdeadline);
+                }
+            }
         }
-      }
     }
-  }
 
-  /**
-   * A method setting the description of a task by id
-   *
-   * @param taskID         the id of a task
-   * @param newDescription the new description
-   */
-  public void setDescriptionOfATask(String taskID, String newDescription)
-  {
-    if (taskID != null && !(taskID.equals("") && newDescription != null
-        && !(newDescription.equals(""))))
-    {
-      for (Task i : tasks)
-      {
-        if (i.getTaskID().equals(taskID))
-        {
-          i.setDescription(newDescription);
+    /**
+     * A method setting the estimated hours of a task by id
+     * @param taskID the id of a task
+     * @param estimatedHours the new estimated hours
+     */
+    public void setEstimatedHoursOfATask(String taskID, int estimatedHours){
+        if(taskID != null && !(taskID.equals("") && estimatedHours >=0)){
+            for(Task i : tasks){
+                if (i.getTaskID().equals(taskID)){
+                    i.setEstimatedHours(estimatedHours);
+                }
+            }
         }
-      }
     }
-  }
 
-  /**
-   * A method ending a task
-   *
-   * @param taskID the id of a task
-   */
-  public void endTask(String taskID)
-  {
-    if (taskID != null && !(taskID.equals("")))
-    {
-      for (Task i : tasks)
-      {
-        if (i.getTaskID().equals(taskID))
-        {
-          i.finishTask();
+    /**
+     * A method setting the description of a task by id
+     * @param taskID the id of a task
+     * @param newDescription the new description
+     */
+    public void setDescriptionOfATask(String taskID, String newDescription){
+        if(taskID != null && !(taskID.equals("") && newDescription != null && !(newDescription.equals("")))){
+            for(Task i : tasks){
+                if (i.getTaskID().equals(taskID)){
+                    i.setDescription(newDescription);
+                }
+            }
         }
-      }
     }
-  }
 
-  /**
-   * A method getting a Task
-   *
-   * @param taskID the id of a task
-   * @return the task
-   */
-  public Task getTaskByID(String taskID)
-  {
-    if (taskID != null && !(taskID.equals("")))
-    {
-      for (Task i : tasks)
-      {
-        if (i.getTaskID().equals(taskID))
-        {
-          return i;
+    /**
+     * A method ending a task
+     * @param taskID the id of a task
+     */
+    public void endTask(String taskID){
+        if(taskID != null && !(taskID.equals(""))) {
+            for(Task i : tasks){
+                if (i.getTaskID().equals(taskID)){
+                    i.finishTask();
+                }
+            }
         }
-      }
     }
 
-    return null;
-  }
-
-  /**
-   * A method removing a task by id
-   *
-   * @param taskID the id of a task
-   */
-  public void removeTask(String taskID)
-  {
-    if (taskID != null && !(taskID.equals("")))
-    {
-      for (Task i : tasks)
-      {
-        if (i.getTaskID().equals(taskID))
-        {
-          tasks.remove(i);
+    /**
+     * A method getting a Task
+     * @param taskID the id of a task
+     * @return the task
+     */
+    public Task getTaskByID(String taskID){
+        if(taskID != null && !(taskID.equals(""))){
+            for(Task i : tasks){
+                if (i.getTaskID().equals(taskID)){
+                    return i;
+                }
+            }
         }
-      }
-    }
-  }
 
-  /**
-   * A method getting the status of a Task
-   *
-   * @param taskID the id of a task
-   * @return the status
-   */
-  public Status getTaskStatus(String taskID)
-  {
-    if (taskID != null && !(taskID.equals("")))
-    {
-      for (Task i : tasks)
-      {
-        if (i.getTaskID().equals(taskID))
-        {
-          return i.getStatus();
+        return null;
+    }
+
+    /**
+     * A method removing a task by id
+     * @param taskID the id of a task
+     */
+    public void removeTaskByID(String taskID){
+        if(taskID != null && !(taskID.equals(""))){
+            for(Task i : tasks){
+                if (i.getTaskID().equals(taskID)){
+                    tasks.remove(i);
+                }
+            }
         }
-        else
-          throw new IllegalArgumentException("Illegal task ID");
-      }
     }
-    throw new IllegalArgumentException("Try again");
-  }
 
-  /**
-   * A method getting the hours spent on a task
-   *
-   * @return the hours spent
-   */
-  public int getHoursSpent()
-  {
-    int hours = 0;
-    for (Task i : tasks)
-    {
-      hours += i.getTimeSpent();
+    /**
+     * A method getting the status of a Task
+     * @param taskID the id of a task
+     * @return the status
+     */
+    public Status getTaskStatus(String taskID){
+        if(taskID != null && !(taskID.equals(""))){
+            for(Task i : tasks){
+                if (i.getTaskID().equals(taskID)){
+                    return i.getStatus();
+                }
+            }
+        }
+        return null;
     }
-    return hours;
-  }
 
-  /**
-   * A method getting an array will all the finished tasks
-   *
-   * @return the array
-   */
-  public ArrayList<Task> getFinishedTasks()
-  {
-    ArrayList<Task> finished = new ArrayList<>();
-    for (Task i : tasks)
-    {
-      if (i.getStatus().equals(Status.ENDED))
-      {
-        finished.add(i);
-      }
+    /**
+     * A method getting the hours spent on a task
+     * @return the hours spent
+     */
+    public int getHoursSpent(){
+        int hours = 0;
+        for(Task i : tasks){
+            hours += i.getTimeSpent();
+        }
+        return  hours;
     }
-    return finished;
-  }
 
-  /**
-   * A method getting an array will all the Active tasks
-   *
-   * @return the array
-   */
-  public ArrayList<Task> getActiveTasks()
-  {
-    ArrayList<Task> active = new ArrayList<>();
-    for (Task i : tasks)
-    {
-      if (i.getStatus().equals(Status.STARTED))
-      {
-        active.add(i);
-      }
+    /**
+     * A method getting an array will all the finished tasks
+     * @return the array
+     */
+    public ArrayList<Task> getFinishedTasks(){
+        ArrayList<Task> finished = new ArrayList<>();
+        for(Task i : tasks){
+            if (i.getStatus().equals(Status.ENDED)){
+                finished.add(i);
+            }
+        }
+        return finished;
     }
-    return active;
-  }
 
-
-}
+    /**
+     * A method getting an array will all the Active tasks
+     * @return the array
+     */
+    public ArrayList<Task> getActiveTasks(){
+        ArrayList<Task> Active = new ArrayList<>();
+        for(Task i : tasks){
+            if (i.getStatus().equals(Status.STARTED)){
+                Active.add(i);
+            }
+        }
+        return Active;
+    }}
 
 
 

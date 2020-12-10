@@ -67,7 +67,7 @@ public class RequirementList
     int hours = 0;
     for (int i = 0; i < requirements.size(); i++)
     {
-      hours += requirements.get(i).getSpentHoursOnRequirement();
+      hours += requirements.get(i).getSpentHours();
     }
     return hours;
   }

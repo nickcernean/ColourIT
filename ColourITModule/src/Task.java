@@ -4,6 +4,7 @@
  * @version 1.001 2020-12-03 Rokas
  * @version 1.002 2020-12-10 Rokas
  * Added Team class to the task, suggested by Nicolae, changed remove and assign team member methods to use Team class
+ * tested everything is ok, don't touch it
  */
 public class Task {
     private String taskID;
