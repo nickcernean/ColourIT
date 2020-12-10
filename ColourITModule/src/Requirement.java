@@ -124,7 +124,7 @@ public class Requirement
     * @param task added to the reuirement
     */
     public void addTask (String taskID, String requirementID, String labelName, String description, Date deadline, int estimatedHours, Status status){
-      taskList.addTask(taskID, requirementID, labelName, description, deadline, estimatedHours, status);
+      taskList.createTask(taskID, requirementID, labelName, description, deadline, estimatedHours, status);
     }
 
     /**

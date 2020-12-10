@@ -252,11 +252,11 @@ public class Project
   public ArrayList<Task> getUnassignedTasks()
   {
   ArrayList<Task> tasks=new ArrayList<>();
-    for (int i = 0; i < teamMember.getTeamMemberTaskList().size(); i++)
+    for (int i = 0; i < teamMember.getTeamMemberTaskList().getSize(); i++)
     {
-      if (!(teamMember.getTeamMemberTaskList().get(i).equals(taskList.getTaskByIndex(i))))
+      if (!(teamMember.getTeamMemberTaskList().getTaskByIndex(i).equals(taskList.getTaskByIndex(i))))
       {
-      tasks.add(teamMember.getTeamMemberTaskList().get(i));
+      tasks.add(teamMember.getTeamMemberTaskList().getTaskByIndex(i));
       }
     }
  return tasks;

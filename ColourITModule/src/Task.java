@@ -205,11 +205,12 @@ public class Task {
             return false;
         }
         Task other = (Task) obj;
-        return taskID.equals(other.getTaskID()) && requirementID.equals(other.getRequirementID()) && labelName.equals(other.getLabelName())
+        return (taskID.equals(other.getTaskID()) && requirementID.equals(other.getRequirementID()) && labelName.equals(other.getLabelName())
                 && description.equals(other.getDescription()) && estimatedHours==other.getEstimatedHours() && deadline.equals(other.getDeadline())
-                && hoursSpent==other.getTimeSpent();
+                && hoursSpent==other.getTimeSpent());
 
     }
+
     @Override public String toString()
     {
       return "Task:" + "taskID='" + taskID + "', requirementID="

@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+
 
 /**
  * TeamMember class to store data about Team Members
@@ -10,6 +10,7 @@ import java.util.ArrayList;
  * @version 1.003 2020-12-10 Rokas
  * version 1.003 notes
  * constructor role setter from version 2 was always setting Team_Member role and was not taking the input from the constructor fixed
+ * deleted teamMemberTaskList added Team class, changed methods add tasks/remove tasks
  */
 public class TeamMember
 {
@@ -19,7 +20,7 @@ public class TeamMember
   private Email email;
   private Date birthdate;
   private Role role;
-  private ArrayList<Task> teamMemberTaskList;
+  private TaskList taskList;
 
   /**
    * Creating a team member to the files
@@ -43,7 +44,7 @@ public class TeamMember
       setEmail(email);
       this.birthdate = birthDate;
       setRole(role);
-      this.teamMemberTaskList = new ArrayList<>();
+      taskList = new TaskList();
     }
   }
 
@@ -136,7 +137,8 @@ public class TeamMember
 
   public void setRole(Role role)
   {
-    this.role = role;
+    if(role!=null){
+    this.role = role;}
   }  /* tested*/
 
   /**
@@ -156,7 +158,8 @@ public class TeamMember
    */
   public void setYearsOfExperience(int newYears)  /* tested*/
   {
-    this.yearsOfExperience = newYears;
+    if(newYears>=0){
+    this.yearsOfExperience = newYears;}
   }
 
   /**
@@ -209,16 +212,20 @@ public class TeamMember
    */
   public void addTaskToList(Task task)
   {
-    teamMemberTaskList.add(task);
+    if(task!=null){
+    taskList.addTask(task);}
+    else{
+      throw new IllegalArgumentException("Task is empty");
+    }
   }
   /**
    * Returns all the information about a team member
    *
    * @return all tasks of a team member
    */
-  public ArrayList<Task> getTeamMemberTaskList()
+  public TaskList getTeamMemberTaskList()
   {
-    return teamMemberTaskList;
+    return taskList;
   }
 
   /**

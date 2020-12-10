@@ -225,8 +225,7 @@ public class Team
    */
   public void assignTaskToATeamMember(String taskID, String teamMemberID)
   {
-    getTeamMembersByID(teamMemberID)
-        .addTaskToList(taskList.getTaskByID(taskID));
+    getTeamMembersByID(teamMemberID).addTaskToList(taskList.getTaskByID(taskID));
   }
 
   /**
@@ -234,7 +233,7 @@ public class Team
    *
     * @param teamMemberID the team member ID
    */
-  public ArrayList<Task> getTeamMemberTasks(String teamMemberID)
+  public TaskList getTeamMemberTasks(String teamMemberID)
   {
    return getTeamMembersByID(teamMemberID).getTeamMemberTaskList();
   }
