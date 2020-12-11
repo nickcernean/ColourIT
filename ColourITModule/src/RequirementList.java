@@ -130,19 +130,16 @@ public class RequirementList
   /*May be some mistakes*/
   public Requirement[] getRequirementsSortedByOrderNum()
   {
-    Requirement[] requirementsarr = new Requirement[requirements.size()];
-    for (int i = 0; i < requirements.size() - 1; i++)
+    Requirement temp = null;
+    Requirement[] requirementsarr = (Requirement[]) requirements.toArray();
+    for (int i = 0; i < requirementsarr.length - 1; i++)
     {
-      if (isOrderNumUsed(requirements.get(i).getOrderNum()))
-      {
-        if (requirements.get(i).getOrderNum() > requirements.get(i + 1)
-            .getOrderNum())
-        {
-          requirementsarr[i] = requirements.get(i + 1);
-          requirements.add(requirements.get(i));
-          i = -1;
-        }
-      else throw new IllegalArgumentException("Order num used");
+      for(int j=i+1;j<requirementsarr.length;j++){
+          if(requirementsarr[i].getOrderNum()>requirementsarr[j].getOrderNum()){
+              temp=requirementsarr[j];
+              requirementsarr[j]=requirementsarr[i];
+              requirementsarr[i]=temp;
+          }
       }
     }
     return requirementsarr;

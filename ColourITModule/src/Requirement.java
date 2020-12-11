@@ -210,11 +210,11 @@ public class Requirement
 
     @Override public String toString()
     {
-        return "Requirement{" + "projectID='" + projectID + ''' + ", name='"
-            + name + ''' + ", estimatedHours=" + estimatedHours + ", deadline="
+        return "Requirement{" + "projectID='" + projectID + "', name='"
+            + name + "', estimatedHours=" + estimatedHours + ", deadline="
             + deadline + ", orderNum=" + orderNum + ", requirementID='"
-            + requirementID + ''' + ", description=" + description + ", team="
-            + team + ", taskList=" + taskList + '}';
+            + requirementID  + "', description=" + description + ", team="
+            + team + "', taskList=" + taskList + '}';
     }
 
 
