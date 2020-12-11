@@ -185,7 +185,7 @@ public class ProjectList
    * @param projectID of the project
    * @return array with all team members
    */
-  public ArrayList<TeamMember> getTeamMembersOfAProject(String projectID)
+  public Team getTeamMembersOfAProject(String projectID)
   {
     if (projectID != null && !projectID.equals("") && projectID.length() == 3){
     return getProjectByID(projectID).getAllMembers();}

@@ -11,6 +11,7 @@ import java.util.ArrayList;
  * added protections to setters took out exceptions to not crash the project
  * added remove member
  * changed getall members to return team
+ * changed constructor to initialise if it meets all conditions not by one.
  */
 public class Project
 {
@@ -22,8 +23,7 @@ public class Project
   private RequirementList requirementList;
   private Team team;
   private Status status;
-  private TeamMember teamMember;
-  private TaskList taskList;
+
  // private ArrayList <Team>teamProject;
 
   /**
@@ -40,6 +40,8 @@ public class Project
   public Project(String name, String projectID, String description,
       Date deadline, int estimatedHours, Status status)
   {
+    if(!name.equals("") && name!=null && description!=null && description.equals("") && projectID != null && !projectID.equals("") && projectID.length() == 3
+    && deadline!=null && estimatedHours>=0 && status!=null){
     setName(name);
     setDescription(description);
     setProjectID(projectID);
@@ -47,9 +49,8 @@ public class Project
     setEstimatedHours(estimatedHours);
     this.team = new Team();
     updateProjectStatus(Status.NOTSTARTED);
-    this.requirementList = new RequirementList();
-   this.taskList = new TaskList();
-   //this.teamProject = new ArrayList();
+    this.requirementList = new RequirementList();}
+   //this.teamProject = new ArrayList();}
   }
 
   /**
@@ -235,7 +236,8 @@ public class Project
    */
   public void updateProjectStatus(Status status)
   {
-    this.status = status;
+    if(status!=null){
+    this.status = status;}
   }
 
   /**
