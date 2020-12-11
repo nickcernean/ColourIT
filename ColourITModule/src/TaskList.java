@@ -216,7 +216,7 @@ public class TaskList
     public ArrayList<Task> getActiveTasks(){
         ArrayList<Task> Active = new ArrayList<>();
         for(Task i : tasks){
-            if (i.getStatus().equals(Status.STARTED)){
+            if (i.getStatus().equals(Status.STARTED) || i.getStatus().equals(Status.NOTSTARTED)){
                 Active.add(i);
             }
         }

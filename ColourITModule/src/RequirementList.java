@@ -27,12 +27,14 @@ public class RequirementList
 
   public Requirement getRequirementByID(String requirementID)
   {
+    Requirement requirement = null;
     for (int i = 0; i < requirements.size(); i++)
       if (requirements.get(i).getRequirementID().equals(requirementID))
       {
-        return requirements.get(i);
+        requirement = requirements.get(i);
       }
-    throw new IllegalArgumentException("Invalid ID");
+      return requirement;
+    //throw new IllegalArgumentException("Invalid ID");
   }
 
   public void editDeadLineOfARequirement(String requirementID, Date newDeadline)
@@ -90,8 +92,7 @@ public class RequirementList
     ArrayList<Requirement> started = new ArrayList<>();
     for (int i = 0; i < requirements.size(); i++)
     {
-      if (requirements.get(i).getStatus().equals(Status.NOTSTARTED)
-          && requirements.get(i).getStatus().equals(Status.STARTED))
+      if (requirements.get(i).getStatus().equals(Status.STARTED))
       {
         started.add(requirements.get(i));
       }
@@ -116,7 +117,7 @@ public class RequirementList
 
   public boolean isOrderNumUsed(int orderNum)
   {
-    for (int i = 0; i < requirements.size() - 1; i++)
+    for (int i = 0; i < requirements.size(); i++)
     {
       if (requirements.get(i).getOrderNum() == orderNum)
       {

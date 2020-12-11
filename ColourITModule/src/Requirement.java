@@ -45,6 +45,7 @@ public class Requirement
             this.deadline = deadline;
             this.orderNum = orderNum;
             team = new Team();
+            taskList = new TaskList();
             
         }
 
@@ -185,7 +186,7 @@ public class Requirement
      * @return the status of the requirement
      */
     public Status getStatus(){
-      if(taskList.getActiveTasks().equals(null)){
+      if(taskList.getActiveTasks().size()==0){
         return Status.ENDED;
       } else {
         return Status.STARTED;
@@ -207,7 +208,14 @@ public class Requirement
       return taskList.getHoursSpent();
     }
 
-
+    @Override public String toString()
+    {
+        return "Requirement{" + "projectID='" + projectID + ''' + ", name='"
+            + name + ''' + ", estimatedHours=" + estimatedHours + ", deadline="
+            + deadline + ", orderNum=" + orderNum + ", requirementID='"
+            + requirementID + ''' + ", description=" + description + ", team="
+            + team + ", taskList=" + taskList + '}';
+    }
 
 
 
