@@ -3,7 +3,9 @@ import java.util.ArrayList;
  * @author Nicolae Cernean
  * @version 1.001 Nicolae
  * @version 1.002 Rokas
+ * v1.002 notes
  * deleted instance variable Project Project ID not used.
+ * remade method Requirements sorted by orderNum
  */
 public class RequirementList
 {
@@ -127,11 +129,14 @@ public class RequirementList
     return false;
   }
 
-  /*May be some mistakes*/
+  /*Focking fabulous */
   public Requirement[] getRequirementsSortedByOrderNum()
   {
     Requirement temp = null;
-    Requirement[] requirementsarr = (Requirement[]) requirements.toArray();
+    Requirement[] requirementsarr = new Requirement[requirements.size()];
+    for(int i=0;i<requirements.size();i++){
+        requirementsarr[i]=requirements.get(i);
+    }
     for (int i = 0; i < requirementsarr.length - 1; i++)
     {
       for(int j=i+1;j<requirementsarr.length;j++){

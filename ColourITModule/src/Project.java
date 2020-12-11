@@ -5,8 +5,10 @@ import java.util.ArrayList;
  * @author Nicolae Cernean
  * @version 1.1 2020-12-07
  * @version 1.11 2020-12-10 Rokas
- * verison 1.11 turned off instance variable teamProject cause it's an aray list of aray list of teams?
+ * verison 1.11 
+ * turned off instance variable teamProject cause it's an aray list of aray list of teams?
  * deleted addATeam
+ * added protections to setters took out exceptions to not crash the project
  */
 public class Project
 {
@@ -74,7 +76,8 @@ public class Project
    */
   public void setName(String name)
   {
-    this.name = name;
+    if(!name.equals("") && name!=null){
+    this.name = name;}
   }
 
   /**
@@ -94,7 +97,8 @@ public class Project
    */
   public void setDescription(String description)
   {
-    this.description = description;
+    if(description!=null && description.equals("")){
+    this.description = description;}
   }
 
   /**
@@ -118,10 +122,10 @@ public class Project
     {
       this.projectID = projectID;
     }
-    else
+    /*else
     {
       throw new IllegalArgumentException("The ID must contain 3 characters");
-    }
+    }*/
   }
 
   /**
@@ -141,7 +145,8 @@ public class Project
    */
   public void setDeadline(Date deadline)
   {
-    this.deadline = deadline;
+    if(deadline!=null){
+    this.deadline = deadline;}
   }
 
   /**
@@ -161,7 +166,8 @@ public class Project
    */
   public void setEstimatedHours(int estimatedHours)
   {
-    this.estimatedHours = estimatedHours;
+    if(estimatedHours>=0){
+    this.estimatedHours = estimatedHours;}
   }
 
   /**
@@ -181,7 +187,8 @@ public class Project
    */
   public void setScrumMaster(String teamMemberID)
   {
-    team.getTeamMembersByID(teamMemberID).setRole(Role.SCRUM_MASTER);
+    if(teamMemberID!=null && teamMemberID.length()==4){
+    team.getTeamMembersByID(teamMemberID).setRole(Role.SCRUM_MASTER);}
   }
 
   /**
@@ -191,7 +198,8 @@ public class Project
    */
   public void setProductOwner(String teamMemberID)
   {
-    team.getTeamMembersByID(teamMemberID).setRole(Role.PRODUCT_OWNER);
+    if(teamMemberID!=null && teamMemberID.length()==4){
+    team.getTeamMembersByID(teamMemberID).setRole(Role.PRODUCT_OWNER);}
   }
 
   /**
@@ -201,7 +209,8 @@ public class Project
    */
   public void addTeamMemberInAProject(String teamMemberID)
   {
-    team.addNewTeamMember(team.getTeamMembersByID(teamMemberID));
+    if(teamMemberID!=null && teamMemberID.length()==4){
+    team.addNewTeamMember(team.getTeamMembersByID(teamMemberID));}
   }
 
   /**

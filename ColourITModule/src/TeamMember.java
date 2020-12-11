@@ -45,7 +45,7 @@ public class TeamMember
       this.teamMemberID=teamMemberID;
       this.yearsOfExperience=yearsOfExperience;
       this.email=email;
-      this.birthdate = birthDate;
+      this.birthdate = birthDate.copy();
       this.role=role;
       taskList = new TaskList();
     }
