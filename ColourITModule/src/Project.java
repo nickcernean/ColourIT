@@ -209,7 +209,7 @@ public class Project
    *
    * @return the team member that will be added in the project
    */
-  public TeamMember[] getAllMembers()
+  public ArrayList<TeamMember> getAllMembers()
   {
     return team.getAllTeamMembers();
   }

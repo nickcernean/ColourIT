@@ -61,7 +61,22 @@ public class TestMethod
     Team team = new Team();
     team.addNewTeamMember(teamMember1);
     team.addNewTeamMember(teamMember2);
-    
+    System.out.println(team.totalNumberOfTeamMembers());
+    System.out.println(team.getAllTeamMembers());
+    System.out.println(team.getTeamMembersByID("2509"));
+    System.out.println(team.getTeamMembersByID("2222"));
+    System.out.println(team.getTeamMemberByName("Jeriss"));
+    System.out.println(team.getTeamMembersByExperience(7));
+    System.out.println(team.getTeamMembersByExperience(5));
+    System.out.println(team.getTeamMembersByEmail(new Email("jErry","gmail","com")));
+    System.out.println(team.getTeamMembersByBirthday(new Date()));
+    System.out.println(team.getScrumMaster());
+    team.getAllTeamMembers().get(0).setRole(Role.SCRUM_MASTER);
+    System.out.println(team.getScrumMaster());
+    team.getAllTeamMembers().get(1).setRole(Role.PRODUCT_OWNER);
+    System.out.println(team.getProductOwner());
+    System.out.println(team.getTeamMemberTasks("2509"));
+    System.out.println(team);
 //    member1.setName(" John Travolta");
 //    System.out.println(member1.getName());
 //    member1.setTeamMemberID("1001");

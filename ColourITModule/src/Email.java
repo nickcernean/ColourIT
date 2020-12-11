@@ -18,20 +18,20 @@ public class Email
   {
     if (trueOrFalse(user))
     {
-      this.user = user;
+      this.user = user.toLowerCase();
     }
     else
       this.user = "wrong email";
 
     if (trueOrFalse(host))
     {
-      this.host = host;
+      this.host = host.toLowerCase();
     }
     else
       this.host = "wrong email";
     if (trueOrFalse(domain))
     {
-      this.domain = domain;
+      this.domain = domain.toLowerCase();
     }
     else
       this.domain = "wrong email";

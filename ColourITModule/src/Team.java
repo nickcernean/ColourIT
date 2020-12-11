@@ -9,7 +9,12 @@
  * added toString method, 
  * renamed removeTeamMember(String teamMemberID)  to removeTeamMemberByID(String teamMemberID)
  * Created new removeTeamMember(TeamMember teamMember) method
- * 
+ * added protections to some methods
+ * changed method getAllTeamMembers to return Team not the Array
+ * changed getTeamMembers by name to return ArrayList, cause Array was throwing exceptions and was creating empty spots
+ * changed getTeamMembers by experience to return ArrayList, cause Array was throwing exceptions and was creating empty spots
+ * changed getTeamMembers by email to return one team member cause emails are unique
+ * assign a task to a team member is redundant cause taskList is empty you can't find anything in it.
  */
 import java.util.ArrayList;
 
@@ -36,7 +41,8 @@ public class Team
    */
   public void addNewTeamMember(TeamMember teamMember)
   {
-    team.add(teamMember);
+    if(teamMember!=null){
+    team.add(teamMember);}
   }
 
   /**
@@ -46,7 +52,8 @@ public class Team
    */
   public void removeTeamMemberByID(String teamMemberID)
   {
-    team.remove(getTeamMembersByID(teamMemberID));
+    if(!teamMemberID.equals("") && teamMemberID!=null){
+    team.remove(getTeamMembersByID(teamMemberID));}
   }
   /**
    * Removes a given team member by selected team member
@@ -75,17 +82,13 @@ public class Team
    *
    * @return an array of team members
    */
-  public TeamMember[] getAllTeamMembers()
+  public ArrayList<TeamMember> getAllTeamMembers()
   {
-    TeamMember[] teamList = new TeamMember[team.size()];
-    for (int i = 0; i < team.size(); i++)
-    {
-      teamList[i] = team.get(i);
-    }
-    if (teamList[0] == null)
-      throw new NullPointerException("No list available");
+    if (team.size() == 0){
+     // throw new NullPointerException("No list available");
+     return null;}
     else
-      return teamList;
+      return team;
   }
 
   /**
@@ -108,40 +111,42 @@ public class Team
    * Gets a list of team members by name
    *
    * @param name - name to be searched for
-   * @return an array of team members
+   * @return an arrayList of team members
    */
-  public TeamMember[] getTeamMemberByName(String name)
+  public ArrayList<TeamMember> getTeamMemberByName(String name)
   {
-    TeamMember[] nameList = new TeamMember[team.size()];
+    ArrayList<TeamMember> nameList = new ArrayList<TeamMember>();
     for (int i = 0; i < team.size(); i++)
     {
       if (team.get(i).getName().equals(name))
-        nameList[i] = team.get(i);
+        nameList.add(team.get(i));
     }
-    if (nameList[0] == null)
-      throw new NullPointerException("No list available");
-    else
-      return nameList;
+    if (nameList.size() == 0){
+      //throw new IndexOutOfBoundsException("No list available");} //if no list stops the program if you can't handle it
+      return null;} // choice between them
+    else{
+      return nameList;}
   }
 
   /**
    * Gets a list of team members with specific number of years of experience
    *
    * @param yearsOfExperience - desired number of years of experience
-   * @return an array of team members
+   * @return an arrayList of team members
    */
-  public TeamMember[] getTeamMembersByExperience(int yearsOfExperience)
+  public ArrayList<TeamMember> getTeamMembersByExperience(int yearsOfExperience)
   {
-    TeamMember[] xpList = new TeamMember[team.size()];
+    ArrayList<TeamMember> xpList = new ArrayList<TeamMember>();
     for (int i = 0; i < team.size(); i++)
     {
       if (team.get(i).getYearsOfExperience() == yearsOfExperience)
-        xpList[i] = team.get(i);
+        xpList.add(team.get(i));
     }
-    if (xpList[0] == null)
-      throw new NullPointerException("No list available");
-    else
-      return xpList;
+    if (xpList.size() == 0){
+     // throw new IndexOutOfBoundsException("No list available");} //if no list stops the program if you can't handle it
+      return null;} // choice between them
+    else{
+      return xpList;}
   }
 
   /**
@@ -150,18 +155,14 @@ public class Team
    * @param - email to be searched for
    * @return an array of team members
    */
-  public TeamMember[] getTeamMembersByEmail(Email email)
+  public TeamMember getTeamMembersByEmail(Email email)
   {
-    TeamMember[] emailList = new TeamMember[team.size()];
     for (int i = 0; i < team.size(); i++)
     {
       if (team.get(i).getEmail().equals(email))
-        emailList[i] = team.get(i);
+        return team.get(i);
     }
-    if (emailList[0] == null)
-      throw new NullPointerException("No list available");
-    else
-      return emailList;
+    return null;
   }
 
   /**
@@ -170,16 +171,17 @@ public class Team
    * @param date - birthday to be searched for
    * @return an array of team members
    */
-  public TeamMember[] getTeamMembersByBirthday(Date date)
+  public ArrayList<TeamMember> getTeamMembersByBirthday(Date date)
   {
-    TeamMember[] birthdayList = new TeamMember[team.size()];
+    ArrayList<TeamMember> birthdayList = new ArrayList<TeamMember>();
     for (int i = 0; i < team.size(); i++)
     {
       if (team.get(i).getBirthdate().equals(date))
-        birthdayList[i] = team.get(i);
+        birthdayList.add(team.get(i));
     }
-    if (birthdayList[0] == null)
-      throw new NullPointerException("No list available");
+    if (birthdayList.size() == 0)
+      //throw new NullPointerException("No list available"); stops the program
+      return null;
     else
       return birthdayList;
   }
@@ -197,8 +199,9 @@ public class Team
       {
         return team.get(i);
       }
-    throw new IllegalArgumentException(
-        "Please assign a scrum master to this project");
+   /* throw new IllegalArgumentException(
+        "Please assign a scrum master to this project");*/
+        return null;
   }
   /**
    * Returns the product owner from team
