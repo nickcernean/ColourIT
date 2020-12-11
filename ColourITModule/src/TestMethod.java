@@ -37,6 +37,7 @@ public class TestMethod
     System.out.println(task1);
     System.out.println(task2.equals(task1));
     TeamMember teamMember1= new TeamMember("Rokas","2511",new Email("rokas","gmail","com"),8,new Date(),Role.SCRUM_MASTER);
+    TeamMember teamMember2 = new TeamMember("Jeris","2509",new Email("Jerry","gmail","com"),5,new Date(),Role.TEAM_MEMBER);
     System.out.println("");
     System.out.println(teamMember1);
     teamMember1.setName("Tomas");
@@ -52,6 +53,15 @@ public class TestMethod
     System.out.println(teamMember1.getRole());
     teamMember1.addTaskToList(task1);
     System.out.println(teamMember1.getTeamMemberTaskList());
+    System.out.println(teamMember1);
+    System.out.println(teamMember2);
+    System.out.println(teamMember1.equals(teamMember2));
+    teamMember2.addTaskToList(task2);
+    System.out.println(teamMember2.getTeamMemberTaskList());
+    Team team = new Team();
+    team.addNewTeamMember(teamMember1);
+    team.addNewTeamMember(teamMember2);
+    
 //    member1.setName(" John Travolta");
 //    System.out.println(member1.getName());
 //    member1.setTeamMemberID("1001");

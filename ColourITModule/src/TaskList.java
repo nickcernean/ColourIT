@@ -15,6 +15,7 @@ import java.util.ArrayList;
  * added protection to createTask
  * new method addTask
  * added taskList get size
+ * added toString method
  */
 
 public class TaskList
@@ -220,7 +221,16 @@ public class TaskList
             }
         }
         return Active;
-    }}
+    }
+    @Override
+    public String toString (){
+      String text="";
+      for (int i=0;i<tasks.size();i++){
+          text+= tasks.get(i) + "\n";
+      }
+      return text;
+    }
+  }
 
 
 
