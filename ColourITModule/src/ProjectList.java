@@ -6,6 +6,7 @@ import java.util.ArrayList;
  * @version 1.1 2020-12-07
  * @version 1.11 2020-12-10 Rokas
  * Deleted exception at getProjectByID it was ending the for loop prematurely
+ * added protections
  */
 public class ProjectList
 {
@@ -26,7 +27,8 @@ public class ProjectList
    */
   public void addProject(Project project)
   {
-    projects.add(project);
+    if(project!=null){
+    projects.add(project);}
   }
 
   /**
@@ -96,7 +98,8 @@ public class ProjectList
    */
   public void removeProject(String projectID)
   {
-    projects.remove(getProjectByID(projectID));
+    if (projectID != null && !projectID.equals("") && projectID.length() == 3){
+    projects.remove(getProjectByID(projectID));}
   }
 
   /**
@@ -107,7 +110,8 @@ public class ProjectList
    */
   public void editDeadlineOfAProject(String projectID, Date newDeadline)
   {
-    getProjectByID(projectID).setDeadline(newDeadline);
+    if (projectID != null && !projectID.equals("") && projectID.length() == 3 && newDeadline!=null){
+    getProjectByID(projectID).setDeadline(newDeadline);}
   }
 
   /**
@@ -118,7 +122,8 @@ public class ProjectList
    */
   public void editUserStoryOfTheProject(String projectID, String newDescription)
   {
-    getProjectByID(projectID).setDescription(newDescription);
+    if (projectID != null && !projectID.equals("") && projectID.length() == 3 && newDescription!=null && !newDescription.equals("")){
+    getProjectByID(projectID).setDescription(newDescription);}
   }
 
   /**
@@ -151,7 +156,9 @@ public class ProjectList
    */
   public RequirementList getRequirementsOfAProject(String projectID)
   {
-    return getProjectByID(projectID).getRequirements();
+    if (projectID != null && !projectID.equals("") && projectID.length() == 3){
+    return getProjectByID(projectID).getRequirements();}
+    return null;
   }
 
   /**
@@ -162,7 +169,9 @@ public class ProjectList
    */
   public Requirement[] getRequirementsByImportance(String projectID)
   {
-    return getProjectByID(projectID).getRequirementsByImportance();
+    if (projectID != null && !projectID.equals("") && projectID.length() == 3){
+    return getProjectByID(projectID).getRequirementsByImportance();}
+    return null;
   }
 
   /**
@@ -173,7 +182,9 @@ public class ProjectList
    */
   public ArrayList<TeamMember> getTeamMembersOfAProject(String projectID)
   {
-    return getProjectByID(projectID).getAllMembers();
+    if (projectID != null && !projectID.equals("") && projectID.length() == 3){
+    return getProjectByID(projectID).getAllMembers();}
+    return null;
   }
 
 }
