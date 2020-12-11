@@ -234,11 +234,11 @@ public class Project
    *
    * @param status the new status of the project
    */
-  public void updateProjectStatus(Status status)
-  {
-    if(status!=null){
-    this.status = status;}
-  }
+  // public void updateProjectStatus(Status status)
+  // {
+  //   if(status!=null){
+  //   this.status = status;}
+  // }
 
   /**
    * Returns the project status

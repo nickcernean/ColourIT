@@ -67,7 +67,7 @@ public class TaskList
      * @param requirementID the requirement id
      * @return the array
      */
-    public Task[] getAllRequirementTask(String requirementID){
+    public Task[] getAllRequirementTasks(String requirementID){
         Task[] taskarray = new Task[tasks.size()];
         for (int i = 0; i < tasks.size(); i++){
             if(tasks.get(i).getRequirementID().equals(requirementID)){

@@ -22,7 +22,7 @@ public class Team
 {
 
   private ArrayList<TeamMember> team;
-  private TaskList taskList;
+ // private TaskList taskList;
 
   /**
    * Creating a list of team member
@@ -31,7 +31,7 @@ public class Team
   {
     this.team = new ArrayList<TeamMember>();
     //    this.teamMemberTaskList = new ArrayList<>();
-    this.taskList = new TaskList();
+   // this.taskList = 
   }
 
   /**
@@ -226,20 +226,20 @@ public class Team
    * @param taskID the task ID
    * @param teamMemberID the team member ID
    */
-  public void assignTaskToATeamMember(String taskID, String teamMemberID)
-  {
-    getTeamMembersByID(teamMemberID).addTaskToList(taskList.getTaskByID(taskID));
-  }
+  // public void assignTaskToATeamMember(String taskID, String teamMemberID)
+  // {
+  //   getTeamMembersByID(teamMemberID).addTaskToList(taskList.getTaskByID(taskID));
+  // }
 
   /**
    * Returns all the tasks of a team member
    *
     * @param teamMemberID the team member ID
    */
-  public TaskList getTeamMemberTasks(String teamMemberID)
-  {
-   return getTeamMembersByID(teamMemberID).getTeamMemberTaskList();
-  }
+  // public TaskList getTeamMemberTasks(String teamMemberID)
+  // {
+  //  return getTeamMembersByID(teamMemberID).getTeamMemberTaskList();
+ // }
   /**
    * Prints out team members
    */

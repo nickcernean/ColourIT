@@ -102,11 +102,6 @@ public class RequirementList
     }
     return started;
   }
-
-  public void updateRequirementStatus(String requirementID, Status newStatus)
-  {
-    //getRequirementByID(requirementID).updateStatus(newStatus);
-  }
   public Requirement getRequirementByIndex(int orderNum){
       if(orderNum>=0){
         return requirements.get(orderNum);
@@ -123,17 +118,17 @@ public class RequirementList
     return requirementsarr;
   }
 
-  public boolean isOrderNumUsed(int orderNum)
-  {
-    for (int i = 0; i < requirements.size(); i++)
-    {
-      if (requirements.get(i).getOrderNum() == orderNum)
-      {
-        return true;
-      }
-    }
-    return false;
-  }
+  // public boolean isOrderNumUsed(int orderNum)
+  // {
+  //   for (int i = 0; i < requirements.size(); i++)
+  //   {
+  //     if (requirements.get(i).getOrderNum() == orderNum)
+  //     {
+  //       return true;
+  //     }
+  //   }
+  //   return false;
+  // }
 
   /*Focking fabulous */
   public RequirementList getRequirementsSortedByOrderNum()
