@@ -77,7 +77,8 @@ public class ProjectList
       {
         return projects.get(i);
       }
-    throw new IllegalArgumentException("Invalid Project Id");
+    //throw new IllegalArgumentException("Invalid Project Id");
+    return null;
   }
 
   /**
@@ -136,13 +137,17 @@ public class ProjectList
     Project[] projectList = new Project[projects.size()];
     for (int i = 0; i < projects.size(); i++)
     {
-      if (projects.get(i).getProjectStatus().equals(Status.ENDED))
+    /*  if (projects.get(i).getProjectStatus().equals(Status.ENDED))
       {
         throw new IllegalArgumentException("No active project");
       }
       else
       {
         projectList[i] = projects.get(i);
+      }*/
+      if (!(projects.get(i).getProjectStatus().equals(Status.ENDED))){
+        projectList[i] = projects.get(i);
+
       }
     }
     return projectList;
@@ -167,7 +172,7 @@ public class ProjectList
    * @param projectID of the project
    * @return array with all requirements by importance
    */
-  public Requirement[] getRequirementsByImportance(String projectID)
+  public RequirementList getRequirementsByImportance(String projectID)
   {
     if (projectID != null && !projectID.equals("") && projectID.length() == 3){
     return getProjectByID(projectID).getRequirementsByImportance();}

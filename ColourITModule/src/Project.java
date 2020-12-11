@@ -9,6 +9,8 @@ import java.util.ArrayList;
  * turned off instance variable teamProject cause it's an aray list of aray list of teams?
  * deleted addATeam
  * added protections to setters took out exceptions to not crash the project
+ * added remove member
+ * changed getall members to return team
  */
 public class Project
 {
@@ -212,15 +214,18 @@ public class Project
     if(teamMemberID!=null && teamMemberID.length()==4){
     team.addNewTeamMember(team.getTeamMembersByID(teamMemberID));}
   }
-
+  public void removeTeamMemberInAProject(String teamMemberID){
+    if(teamMemberID!=null && teamMemberID.length()==4){
+      team.removeTeamMember(team.getTeamMembersByID(teamMemberID));}
+  }
   /**
    * Returns all the team members working on the project
    *
    * @return the team member that will be added in the project
    */
-  public ArrayList<TeamMember> getAllMembers()
+  public Team getAllMembers()
   {
-    return team.getAllTeamMembers();
+    return team;
   }
 
   /**
@@ -240,6 +245,12 @@ public class Project
    */
   public Status getProjectStatus()
   {
+    if(status.equals(Status.NOTSTARTED) && requirementList.getAllRequirements().length>0){
+      status=Status.STARTED;
+    }
+    if(!status.equals(Status.ENDED) && requirementList.getAllRequirements().length>0 && requirementList.getActiveRequirements().isEmpty()){
+        status=Status.ENDED;
+    }
     return status;
   }
 
@@ -261,11 +272,12 @@ public class Project
   public ArrayList<Task> getUnassignedTasks()
   {
   ArrayList<Task> tasks=new ArrayList<>();
-    for (int i = 0; i < teamMember.getTeamMemberTaskList().getSize(); i++)
+    for (int i = 0; i < getRequirementsByImportance().getAllRequirements().length;i++)
     {
-      if (!(teamMember.getTeamMemberTaskList().getTaskByIndex(i).equals(taskList.getTaskByIndex(i))))
-      {
-      tasks.add(teamMember.getTeamMemberTaskList().getTaskByIndex(i));
+      for(int j=0;j<getRequirementsByImportance().getRequirementByIndex(i).getTasks().getSize();j++){
+        if(getRequirementsByImportance().getRequirementByIndex(i).getTasks().getTaskByIndex(j).getResponsibleTeamMembers().totalNumberOfTeamMembers()==0){
+          tasks.add(getRequirementsByImportance().getRequirementByIndex(i).getTasks().getTaskByIndex(j));
+        }
       }
     }
  return tasks;
@@ -276,9 +288,11 @@ public class Project
    *
    * @return all the the requirements by importance
    */
-  public Requirement[] getRequirementsByImportance()
+  public RequirementList getRequirementsByImportance()
   {
     return requirementList.getRequirementsSortedByOrderNum();
   }
-
+  public void addRequirement(Requirement requirement){
+    requirementList.addRequirement(requirement);
+  }
 }

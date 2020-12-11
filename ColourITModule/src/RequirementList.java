@@ -6,6 +6,7 @@ import java.util.ArrayList;
  * v1.002 notes
  * deleted instance variable Project Project ID not used.
  * remade method Requirements sorted by orderNum
+ * added toString method
  */
 public class RequirementList
 {
@@ -106,7 +107,12 @@ public class RequirementList
   {
     //getRequirementByID(requirementID).updateStatus(newStatus);
   }
-
+  public Requirement getRequirementByIndex(int orderNum){
+      if(orderNum>=0){
+        return requirements.get(orderNum);
+      }
+      else return null;
+  }
   public Requirement[] getAllRequirements()
   {
     Requirement[] requirementsarr = new Requirement[requirements.size()];
@@ -130,10 +136,11 @@ public class RequirementList
   }
 
   /*Focking fabulous */
-  public Requirement[] getRequirementsSortedByOrderNum()
+  public RequirementList getRequirementsSortedByOrderNum()
   {
     Requirement temp = null;
     Requirement[] requirementsarr = new Requirement[requirements.size()];
+    RequirementList other = new RequirementList();
     for(int i=0;i<requirements.size();i++){
         requirementsarr[i]=requirements.get(i);
     }
@@ -147,7 +154,17 @@ public class RequirementList
           }
       }
     }
-    return requirementsarr;
+    for(int i=0;i<requirementsarr.length;i++){
+        other.addRequirement(requirementsarr[i]);
+    }
+    return other;
   }
-
+  @Override
+  public String toString (){
+    String text="";
+    for (int i=0;i<requirements.size();i++){
+        text+= requirements.get(i) + "\n";
+    }
+    return text;
+  }
 }

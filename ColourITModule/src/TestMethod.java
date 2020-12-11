@@ -1,3 +1,5 @@
+
+
 public class TestMethod
 {
   public static void main(String[] args)
@@ -15,7 +17,7 @@ public class TestMethod
     team1.addNewTeamMember(member3);
     team1.addNewTeamMember(member4);
     team1.addNewTeamMember(member5);*/
-    Task task1 = new Task("1","2","Newtask1","taskdescription",new Date(),20,Status.NOTSTARTED);
+   /* Task task1 = new Task("1","2","Newtask1","taskdescription",new Date(),20,Status.NOTSTARTED);
     System.out.println(task1);
     task1.assignTeamMember(new TeamMember("Rokas","2511",new Email("rokas","gmail","com"),8,new Date(),Role.SCRUM_MASTER));
     System.out.println(task1.getResponsibleTeamMembers());
@@ -76,7 +78,7 @@ public class TestMethod
     team.getAllTeamMembers().get(1).setRole(Role.PRODUCT_OWNER);
     System.out.println(team.getProductOwner());
     System.out.println(team.getTeamMemberTasks("2509"));
-    System.out.println(team);
+    System.out.println(team);*/
 //    member1.setName(" John Travolta");
 //    System.out.println(member1.getName());
 //    member1.setTeamMemberID("1001");
@@ -130,10 +132,25 @@ public class TestMethod
 //    requirement1.addTaskList(taskList1);
 //    requirement2.addTaskList(taskList2);
 
+Requirement R1 = new Requirement("projectID1", "requirementID1", "name1", new UserStory("what","where","who"), 10, new Date(), 2);
+    Requirement R2 = new Requirement("projectID2", "requirementID2", "name2", new UserStory("what","where","who"), 10, new Date(), 1);
+    R1.addTask("taskID1", "requirementID1", "labelName1", "description1", new Date(), 5, Status.ENDED);
+    R1.addTask("taskID2", "requirementID2", "labelName2", "description2", new Date(), 5, Status.ENDED);
+    R2.addTask("taskID1", "requirementID1", "labelName1", "description1", new Date(), 5, Status.ENDED);
+    R2.addTask("taskID2", "requirementID2", "labelName2", "description2", new Date(), 5, Status.ENDED);
 
+    RequirementList list1 = new RequirementList();
+    list1.addRequirement(R1);
+    list1.addRequirement(R2);
+    //System.out.println(Arrays.toString(list1.getRequirementsSortedByOrderNum()));
+    Project project = new Project("name", "projectID", "description", new Date(), 8, Status.STARTED);
+    project.addRequirement(R1);
+    project.addRequirement(R2);
+    System.out.println(project.getRequirementsByImportance());
+    System.out.println(project.getUnassignedTasks());
+    System.out.println(project.getHoursSpentOnProject());
 
-
-
+    System.out.println(project.getProjectStatus());
 
   }
 
