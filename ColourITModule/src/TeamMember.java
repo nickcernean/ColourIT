@@ -11,6 +11,9 @@
  * version 1.003 notes
  * constructor role setter from version 2 was always setting Team_Member role and was not taking the input from the constructor fixed
  * deleted teamMemberTaskList added Team class, changed methods add tasks/remove tasks
+ * v1.002 reverse(fix) changed the team member constructor to not use single setmethods, cause it can create empty spaces etc
+ * added protections to setters which were probably deleted in v1.002
+ * took out exceptions will add them later no way to handle them now
  */
 public class TeamMember
 {
@@ -35,15 +38,15 @@ public class TeamMember
       int yearsOfExperience, Date birthDate, Role role)
   {
     if (name != null && !name.equals("") && teamMemberID != null
-        && !teamMemberID.equals("") && yearsOfExperience >= 0 && email != null
-        && birthDate != null)
+        && !teamMemberID.equals("") && teamMemberID.length()==4 && isEmailValid(email) && yearsOfExperience >= 0 && email != null
+        && birthDate != null && role!=null)
     {
-      setName(name);
-      setTeamMemberID(teamMemberID);
-      setYearsOfExperience(yearsOfExperience);
-      setEmail(email);
+      this.name=name;
+      this.teamMemberID=teamMemberID;
+      this.yearsOfExperience=yearsOfExperience;
+      this.email=email;
       this.birthdate = birthDate;
-      setRole(role);
+      this.role=role;
       taskList = new TaskList();
     }
   }
@@ -65,7 +68,8 @@ public class TeamMember
    */
   public void setName(String name)
   {
-    this.name = name;
+    if(name!=null && !name.equals("")){
+    this.name = name;}
   } /* tested*/
 
   /**
@@ -89,11 +93,10 @@ public class TeamMember
     {
       this.teamMemberID = teamMemberID;
     }
-    else
+  /*  else
     {
       throw new IllegalArgumentException("The team member ID must contain 4 characters");
-    }
-  }
+    } */ }
 
   /**
    * Gets an email of the employee
@@ -108,14 +111,14 @@ public class TeamMember
   /**
    * Sets/edits a new email of a team member
    *
-   * @param newEmail -edit the email of a team member
+   * @param newEmail -change  the email of a team member
    */
   public void setEmail(Email newEmail)  /* tested*/
   {
     if (isEmailValid(newEmail))
       this.email = newEmail;
-    else
-      throw new IllegalArgumentException("Illegal email input, try again");
+   /* else
+      throw new IllegalArgumentException("Illegal email input, try again");*/
   }
 
   /**
