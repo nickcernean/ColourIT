@@ -42,13 +42,13 @@ public class Project
   {
     if(!name.equals("") && name!=null && description!=null && description.equals("") && projectID != null && !projectID.equals("") && projectID.length() == 3
     && deadline!=null && estimatedHours>=0 && status!=null){
-    setName(name);
-    setDescription(description);
-    setProjectID(projectID);
-    setDeadline(deadline);
-    setEstimatedHours(estimatedHours);
+    this.name=name;
+    this.description=description;
+    this.projectID=projectID;
+    this.deadline=deadline;
+    this.estimatedHours=estimatedHours;
     this.team = new Team();
-    updateProjectStatus(Status.NOTSTARTED);
+    this.status=status;
     this.requirementList = new RequirementList();}
    //this.teamProject = new ArrayList();}
   }
