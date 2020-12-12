@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<VBox userData="Task List GUI" prefHeight="400.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox fx:controller="view.TaskListViewController" userData="Task List GUI" prefHeight="400.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox prefHeight="406.0" prefWidth="600.0">
          <children>
@@ -24,7 +24,7 @@
                         <Insets top="20.0" />
                      </VBox.margin>
                   </Label>
-                  <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="165.0" text="Add Task">
+                  <Button onAction="#addTaskButtonPressed" mnemonicParsing="false" prefHeight="30.0" prefWidth="165.0" text="Add Task">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -32,7 +32,7 @@
                         <Insets left="5.0" top="10.0" />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="165.0" text="Remove Task">
+                  <Button onAction="#removeTaskButtonPressed" mnemonicParsing="false" prefHeight="30.0" prefWidth="165.0" text="Remove Task">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -40,7 +40,7 @@
                         <Insets left="5.0" top="10.0" />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="165.0" text="Task Details">
+                  <Button onAction="#showTaskDetailsButtonPressed" mnemonicParsing="false" prefHeight="30.0" prefWidth="165.0" text="Task Details">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -48,7 +48,7 @@
                         <Insets left="5.0" top="10.0" />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="165.0" text="Assign Team Member">
+                  <Button onAction="#assignTeamMemberButtonPressed" mnemonicParsing="false" prefHeight="30.0" prefWidth="165.0" text="Assign Team Member">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -56,7 +56,7 @@
                         <Insets left="5.0" top="10.0" />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="165.0" text="Remove Team Member">
+                  <Button onAction="#removeTeamMemberButtonPressed" mnemonicParsing="false" prefHeight="30.0" prefWidth="165.0" text="Remove Team Member">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -64,21 +64,21 @@
                         <Insets left="5.0" top="10.0" />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="165.0" text="Back">
+                  <Button onAction="#backButtonPressed" mnemonicParsing="false" prefHeight="26.0" prefWidth="165.0" text="Back">
                      <VBox.margin>
                         <Insets left="5.0" top="40.0" />
                      </VBox.margin>
                   </Button>
                </children>
             </VBox>
-            <TableView prefHeight="401.0" prefWidth="506.0">
+            <TableView fx:id="taskListTable" prefHeight="401.0" prefWidth="506.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="Task ID" />
-                <TableColumn prefWidth="99.99994659423828" text="Requirement ID" />
-                  <TableColumn prefWidth="69.5999755859375" text="Name" />
-                  <TableColumn prefWidth="75.0" text="Deadline" />
-                  <TableColumn prefWidth="103.19998168945312" text="Estimated Hours" />
-                  <TableColumn prefWidth="82.4000305175781" text="Hours Spent" />
+                <TableColumn fx:id="taskIDColumn" prefWidth="75.0" text="Task ID" />
+                <TableColumn fx:id="requirementIDColumn" prefWidth="99.99994659423828" text="Requirement ID" />
+                  <TableColumn fx:id="nameColumn" prefWidth="69.5999755859375" text="Name" />
+                  <TableColumn fx:id="deadlineColumn" prefWidth="75.0" text="Deadline" />
+                  <TableColumn fx:id="estimatedHoursColumn" prefWidth="103.19998168945312" text="Estimated Hours" />
+                  <TableColumn fx:id="hoursSpentColumn" prefWidth="82.4000305175781" text="Hours Spent" />
               </columns>
             </TableView>
          </children>
