@@ -1,3 +1,5 @@
+package model;
+
 /**
  *  A class representing a User Story
  * @author Nichita Railean
@@ -11,7 +13,7 @@ public class UserStory
   private String who;
 
   /**
-   *  A 3 argument constructor creating an UserStory
+   *  A 3 argument constructor creating an model.UserStory
    * @param what what
    * @param how how
    * @param who who
@@ -37,7 +39,7 @@ public class UserStory
   }
 
   /**
-   * A method copying the UserStory
+   * A method copying the model.UserStory
    * @return the copy named other
    */
 

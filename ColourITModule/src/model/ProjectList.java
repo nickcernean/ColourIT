@@ -1,6 +1,8 @@
+package model;
+
 import java.util.ArrayList;
 
-/* Project list class, the class where all the projects are stored and all data related to the project is stored/updated
+/* model.Project list class, the class where all the projects are stored and all data related to the project is stored/updated
  *
  * @author Nicolae Cernean
  * @version 1.1 2020-12-07
@@ -77,7 +79,7 @@ public class ProjectList
       {
         return projects.get(i);
       }
-    //throw new IllegalArgumentException("Invalid Project Id");
+    //throw new IllegalArgumentException("Invalid model.Project Id");
     return null;
   }
 
@@ -137,7 +139,7 @@ public class ProjectList
     Project[] projectList = new Project[projects.size()];
     for (int i = 0; i < projects.size(); i++)
     {
-    /*  if (projects.get(i).getProjectStatus().equals(Status.ENDED))
+    /*  if (projects.get(i).getProjectStatus().equals(model.Status.ENDED))
       {
         throw new IllegalArgumentException("No active project");
       }

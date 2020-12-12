@@ -1,5 +1,5 @@
-/*
- * Team class to store a list of Team Members
+package model;/*
+ * model.Team class to store a list of model.Team Members
  *
  * @author Joseph Carroll
  * @author Nicolae Cernean(edited)
@@ -8,9 +8,9 @@
  * version 1.11 notes
  * added toString method, 
  * renamed removeTeamMember(String teamMemberID)  to removeTeamMemberByID(String teamMemberID)
- * Created new removeTeamMember(TeamMember teamMember) method
+ * Created new removeTeamMember(model.TeamMember teamMember) method
  * added protections to some methods
- * changed method getAllTeamMembers to return Team not the Array
+ * changed method getAllTeamMembers to return model.Team not the Array
  * changed getTeamMembers by name to return ArrayList, cause Array was throwing exceptions and was creating empty spots
  * changed getTeamMembers by experience to return ArrayList, cause Array was throwing exceptions and was creating empty spots
  * changed getTeamMembers by email to return one team member cause emails are unique
@@ -22,7 +22,7 @@ public class Team
 {
 
   private ArrayList<TeamMember> team;
- // private TaskList taskList;
+ // private model.TaskList taskList;
 
   /**
    * Creating a list of team member
@@ -236,7 +236,7 @@ public class Team
    *
     * @param teamMemberID the team member ID
    */
-  // public TaskList getTeamMemberTasks(String teamMemberID)
+  // public model.TaskList getTeamMemberTasks(String teamMemberID)
   // {
   //  return getTeamMembersByID(teamMemberID).getTeamMemberTaskList();
  // }

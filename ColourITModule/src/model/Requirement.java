@@ -1,10 +1,11 @@
+package model;
 
 /**
- * A class representing a Requirement
+ * A class representing a model.Requirement
  * @author Nichita Railean
  * @version 1.0 3dec
  * removed arraylist in arraylist task, and task list array 
- * removed Status 
+ * removed model.Status
  * removed add tasklist
  * removed some illegal exeptions
  * DON'T FACKING TOUCH IT
@@ -26,7 +27,7 @@ public class Requirement
 
 
     /**
-     * A 7 argument constructor creating a Requirement
+     * A 7 argument constructor creating a model.Requirement
      * @param projectID project id
      * @param requirementID requirement id
      * @param name requirement name
@@ -70,7 +71,7 @@ public class Requirement
     public int getOrderNum(){return orderNum;}
 
     /**
-     * A method getting the Estimated hours for the Requirement
+     * A method getting the Estimated hours for the model.Requirement
      * @return estimated hours of the requirement
      */
     public int getEstimatedHours(){return estimatedHours;}
@@ -122,7 +123,7 @@ public class Requirement
     /**
     * A method adding a task to requirement
     *
-    * @param task added to the reuirement
+    * task  added to the requirement
     */
     public void addTask (String taskID, String requirementID, String labelName, String description, Date deadline, int estimatedHours, Status status){
       taskList.createTask(taskID, requirementID, labelName, description, deadline, estimatedHours, status);
@@ -173,7 +174,7 @@ public class Requirement
 
     /**
      * A method setting the requirement ID
-     * @param newId the new requirement ID
+     * @param newID the new requirement ID
      */
     public void setRequirementID(String newID){
         if(newID != null && !(newID.equals("")) && newID.length() == 5){
@@ -210,7 +211,7 @@ public class Requirement
 
     @Override public String toString()
     {
-        return "Requirement{" + "projectID='" + projectID + "', name='"
+        return "model.Requirement{" + "projectID='" + projectID + "', name='"
             + name + "', estimatedHours=" + estimatedHours + ", deadline="
             + deadline + ", orderNum=" + orderNum + ", requirementID='"
             + requirementID  + "', description=" + description + ", team="

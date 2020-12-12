@@ -1,16 +1,18 @@
+package model;
+
 import java.util.ArrayList;
 /**
  * @author Nicolae Cernean
  * @version 1.001 Nicolae
  * @version 1.002 Rokas
  * v1.002 notes
- * deleted instance variable Project Project ID not used.
+ * deleted instance variable model.Project model.Project ID not used.
  * remade method Requirements sorted by orderNum
  * added toString method
  */
 public class RequirementList
 {
- // private Project projectID;
+ // private model.Project projectID;
   private ArrayList<Requirement> requirements;
 
   public RequirementList()

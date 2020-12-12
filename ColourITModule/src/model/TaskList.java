@@ -1,7 +1,9 @@
+package model;
+
 import java.util.ArrayList;
 
 /**
- * A class representing a Task list
+ * A class representing a model.Task list
  * @author Nichita Railean
  * @version 1.0 3dec Nichita
  * @version 1.1 10dec Nichita
@@ -23,7 +25,7 @@ public class TaskList
     private ArrayList<Task> tasks;
 
     /**
-     * A 0 argument constructor initializing the Task array
+     * A 0 argument constructor initializing the model.Task array
      */
 
     public TaskList (){
@@ -137,7 +139,7 @@ public class TaskList
     }
 
     /**
-     * A method getting a Task
+     * A method getting a model.Task
      * @param taskID the id of a task
      * @return the task
      */
@@ -168,7 +170,7 @@ public class TaskList
     }
 
     /**
-     * A method getting the status of a Task
+     * A method getting the status of a model.Task
      * @param taskID the id of a task
      * @return the status
      */

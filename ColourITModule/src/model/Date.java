@@ -1,3 +1,5 @@
+package model;
+
 import java.time.LocalDate;
 
 /**
@@ -82,7 +84,7 @@ public class Date {
   }
 
   /**
-   * Checks if the Date given to the object is leap year to know how many days there will be in a year
+   * Checks if the model.Date given to the object is leap year to know how many days there will be in a year
    * @return false or true
    */
   public boolean isLeapYear() {
@@ -255,8 +257,8 @@ public class Date {
   }
 
   /**
-   * converts Date object to string with following format DD/MM/YY
-   * @return String with the Date following the DD/MM/YY format
+   * converts model.Date object to string with following format DD/MM/YY
+   * @return String with the model.Date following the DD/MM/YY format
    */
   @Override
   public String toString() {

@@ -1,3 +1,5 @@
+package model;
+
 /**
  * @author Nichita Railean
  * @version 1.0 dec 3

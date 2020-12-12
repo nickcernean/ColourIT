@@ -1,5 +1,7 @@
+package model;
+
 /**
- * Email of the employees object
+ * model.Email of the employees object
  *
  * @author Rokas Paulauskas
  * @version 1.001 2020-12-03

@@ -1,3 +1,5 @@
+package model;
+
 public interface ColourITModel {
     void addNewTeamMember(String name,int yearsOfExperience,Email email);
     void addTeamMemberToProject(String projectID,TeamMember teamMember);

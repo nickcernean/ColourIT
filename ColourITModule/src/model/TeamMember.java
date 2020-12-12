@@ -1,7 +1,7 @@
-
+package model;
 
 /**
- * TeamMember class to store data about Team Members
+ * model.TeamMember class to store data about model.Team Members
  *
  * @author Rokas Paulauskas
  * @author Nicolae Cernean(edited)
@@ -10,7 +10,7 @@
  * @version 1.003 2020-12-10 Rokas
  * version 1.003 notes
  * constructor role setter from version 2 was always setting Team_Member role and was not taking the input from the constructor fixed
- * deleted teamMemberTaskList added Team class, changed methods add tasks/remove tasks
+ * deleted teamMemberTaskList added model.Team class, changed methods add tasks/remove tasks
  * v1.002 reverse(fix) changed the team member constructor to not use single setmethods, cause it can create empty spaces etc
  * added protections to setters which were probably deleted in v1.002
  * took out exceptions will add them later no way to handle them now
@@ -218,7 +218,7 @@ public class TeamMember
     if(task!=null){
     taskList.addTask(task);}
     else{
-      throw new IllegalArgumentException("Task is empty");
+      throw new IllegalArgumentException("model.Task is empty");
     }
   }
   /**
@@ -238,7 +238,7 @@ public class TeamMember
    */
   @Override public String toString()  /* tested*/
   {
-    return "TeamMember:" + "name='" + name + "', teamMemberID='"
+    return "model.TeamMember:" + "name='" + name + "', teamMemberID='"
         + teamMemberID + "', yearsOfExperience=" + yearsOfExperience
         + "', email='" + email + "', birthdate='" + birthdate + "', role='" + role + "'";
   }

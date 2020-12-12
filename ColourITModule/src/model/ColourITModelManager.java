@@ -1,3 +1,5 @@
+package model;
+
 public class ColourITModelManager implements ColourITModel {
     @Override
     public void addNewTeamMember(String name, int yearsOfExperience, Email email) {
