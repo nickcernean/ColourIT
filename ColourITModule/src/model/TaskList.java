@@ -18,6 +18,7 @@ import java.util.ArrayList;
  * new method addTask
  * added taskList get size
  * added toString method
+ * added removeTask(Task task) method
  */
 
 public class TaskList
@@ -168,7 +169,14 @@ public class TaskList
             }
         }
     }
-
+    public void removeTask(Task task){
+        for(int i=0;i<tasks.size();i++){
+            if(tasks.get(i).equals(task)){
+                tasks.remove(i);
+                break;
+            }
+        }
+    }
     /**
      * A method getting the status of a model.Task
      * @param taskID the id of a task
