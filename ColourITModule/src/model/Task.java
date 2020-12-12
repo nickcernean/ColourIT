@@ -29,7 +29,7 @@ public class Task {
      * @param estimatedHours - in how many hours you should approximately finish it
      * @param status - the state of the task not started/started/ended/approved/disapproved
      */
-    public Task(String taskID,String requirementID, String labelName,String description,Date deadline,int estimatedHours, Status status){
+    public Task(String taskID,String requirementID, String labelName,String description,Date deadline,double estimatedHours, Status status){
         if(taskID!=null && !taskID.equals("") && requirementID!=null && !requirementID.equals("") && labelName!=null && !labelName.equals("")
          && description!=null && !description.equals("") && deadline!=null && estimatedHours>=0 && status!=null){
         this.taskID=taskID;

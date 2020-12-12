@@ -6,7 +6,7 @@ package model;
  * Enum class with all the static variables for requirement.
  */
 
-enum Status
+public enum Status
 {
   NOTSTARTED, STARTED, ENDED
 }
