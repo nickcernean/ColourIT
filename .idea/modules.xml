@@ -4,6 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ColourIT.iml" filepath="$PROJECT_DIR$/ColourIT.iml" />
       <module fileurl="file://$PROJECT_DIR$/ColourITModule/ColourITModule.iml" filepath="$PROJECT_DIR$/ColourITModule/ColourITModule.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ProjectListGUI/ProjectListGUI.iml" filepath="$PROJECT_DIR$/ProjectListGUI/ProjectListGUI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RequirementListGUI/RequirementListGUI.iml" filepath="$PROJECT_DIR$/RequirementListGUI/RequirementListGUI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TeamListGUI/TeamListGUI.iml" filepath="$PROJECT_DIR$/TeamListGUI/TeamListGUI.iml" />
     </modules>
   </component>
 </project>

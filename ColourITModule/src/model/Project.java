@@ -1,6 +1,8 @@
+package model;
+
 import java.util.ArrayList;
 /*
- * Project class, is the class with all the methods needed to edit/update the project and store all the data related to projects
+ * model.Project class, is the class with all the methods needed to edit/update the project and store all the data related to projects
  *
  * @author Nicolae Cernean
  * @version 1.1 2020-12-07
@@ -24,7 +26,7 @@ public class Project
   private Team team;
   private Status status;
 
- // private ArrayList <Team>teamProject;
+ // private ArrayList <model.Team>teamProject;
 
   /**
    * Creating a project with all
@@ -68,7 +70,7 @@ public class Project
    *
    * @param team added to the project
    */
- /* public void addATeam(Team team)
+ /* public void addATeam(model.Team team)
   {
      teamProject.add(team);
   }*/
@@ -234,7 +236,7 @@ public class Project
    *
    * @param status the new status of the project
    */
-  // public void updateProjectStatus(Status status)
+  // public void updateProjectStatus(model.Status status)
   // {
   //   if(status!=null){
   //   this.status = status;}

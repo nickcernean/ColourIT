@@ -1,9 +1,11 @@
+package model;
+
 /**
- * Task object to describe and share the work of the task
+ * model.Task object to describe and share the work of the task
  * @author Rokas Paulauskas
  * @version 1.001 2020-12-03 Rokas
  * @version 1.002 2020-12-10 Rokas
- * Added Team class to the task, suggested by Nicolae, changed remove and assign team member methods to use Team class
+ * Added model.Team class to the task, suggested by Nicolae, changed remove and assign team member methods to use model.Team class
  * tested everything is ok, don't touch it
  */
 public class Task {
@@ -27,8 +29,8 @@ public class Task {
      * @param estimatedHours - in how many hours you should approximately finish it
      * @param status - the state of the task not started/started/ended/approved/disapproved
      */
-    public Task(String taskID,String requirementID, String labelName,String description,Date deadline,int estimatedHours, Status status){
-        if(taskID!=null && !taskID.equals("") && requirementID!=null && !requirementID.equals("") && labelName!=null && !labelName.equals("")
+    public Task(String taskID,String requirementID, String labelName,String description,Date deadline,double estimatedHours, Status status){
+        if(taskID!=null && !taskID.equals("") && requirementID!=null && !requirementID.equals("") && requirementID.length()==4 && labelName!=null && !labelName.equals("")
          && description!=null && !description.equals("") && deadline!=null && estimatedHours>=0 && status!=null){
         this.taskID=taskID;
         this.requirementID=requirementID;
@@ -39,7 +41,9 @@ public class Task {
         team = new Team();
         this.status=status;
         hoursSpent=0;
-    }}
+    }
+        else
+            throw new IllegalArgumentException("Bad input");}
 
     /**
      * get task identification number
@@ -213,7 +217,7 @@ public class Task {
 
     @Override public String toString()
     {
-      return "Task:" + "taskID='" + taskID + "', requirementID="
+      return "model.Task:" + "taskID='" + taskID + "', requirementID="
           + requirementID + "', labelName='" + labelName + "', description='"
           + description + "', estimatedHours=" + estimatedHours
           + "', deadline=" + deadline + "', hoursSpent=" + hoursSpent + "', status="
