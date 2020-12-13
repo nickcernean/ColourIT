@@ -131,8 +131,13 @@ public class TestMethod
 //
 //    requirement1.addTaskList(taskList1);
 //    requirement2.addTaskList(taskList2);
-
-Requirement R1 = new Requirement("projectID1", "requirementID1", "name1", new UserStory("what","where","who"), 10, new Date(), 2);
+Task task = new Task("this","this","this","this",new Date(),20.5,Status.ENDED);
+TaskList taskList = new TaskList();
+taskList.addTask(task);
+System.out.println(taskList);
+taskList.removeTask(task);
+System.out.println(taskList+"removed");
+/*Requirement R1 = new Requirement("projectID1", "requirementID1", "name1", new UserStory("what","where","who"), 10, new Date(), 2);
     Requirement R2 = new Requirement("projectID2", "requirementID2", "name2", new UserStory("what","where","who"), 10, new Date(), 1);
     R1.addTask("taskID1", "requirementID1", "labelName1", "description1", new Date(), 5, Status.ENDED);
     R1.addTask("taskID2", "requirementID2", "labelName2", "description2", new Date(), 5, Status.ENDED);
@@ -152,6 +157,6 @@ Requirement R1 = new Requirement("projectID1", "requirementID1", "name1", new Us
 
     System.out.println(project.getProjectStatus());
 
-  }
+  }*/
 
-}
+}}
