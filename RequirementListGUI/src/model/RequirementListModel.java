@@ -29,6 +29,8 @@ public interface RequirementListModel {
 
     public Requirement[] getAllRequirements();
 
+    public int getRequirementListSize();
+
     public RequirementList getRequirementsSortedByOrderNum();
 
     public String toString ();

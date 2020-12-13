@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="1020.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="1020.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.RequirementListMenuControllerr">
    <children>
       <HBox prefHeight="430.0" prefWidth="906.0" spacing="8.0">
          <children>
@@ -57,21 +57,21 @@
                   </Button>
                </children>
             </VBox>
-            <TableView prefHeight="426.0" prefWidth="786.0">
+            <TableView fx:id="RequirementListTable" prefHeight="426.0" prefWidth="786.0">
               <columns>
-                  <TableColumn fx:id="orderNumber" prefWidth="110.0" text="Order Number" />
-                  <TableColumn fx:id="name" prefWidth="110.0" text="Name" />
-                  <TableColumn fx:id="requirementID" prefWidth="110.0" text="Requirement ID" />
-                <TableColumn fx:id="projectID" prefWidth="85.0" text="Project ID" />
-                  <TableColumn fx:id="description" prefWidth="85.0" text="Description" />
-                  <TableColumn fx:id="estimatedhours" prefWidth="110.0" text="Estimated Hours" />
-                  <TableColumn fx:id="deadline" prefWidth="85.0" text="Deadline" />
-                  <TableColumn prefWidth="85.0" text="Status" />
+                  <TableColumn fx:id="orderNumCollum" prefWidth="110.0" text="Order Number" />
+                  <TableColumn fx:id="nameCollum" prefWidth="110.0" text="Name" />
+                  <TableColumn fx:id="requirementIDCollum" prefWidth="110.0" text="Requirement ID" />
+                <TableColumn fx:id="projectIDCollum" prefWidth="85.0" text="Project ID" />
+                  <TableColumn fx:id="descriptionCollum" prefWidth="85.0" text="Description" />
+                  <TableColumn fx:id="estimatedHoursCollum" prefWidth="110.0" text="Estimated Hours" />
+                  <TableColumn fx:id="deadlineCollum" prefWidth="85.0" text="Deadline" />
+                  <TableColumn fx:id="statusTableColumn" prefWidth="85.0" text="Status" />
               </columns>
             </TableView>
          </children>
       </HBox>
-      <Label prefHeight="19.0" prefWidth="940.0">
+      <Label fx:id="errorLabel" prefHeight="19.0" prefWidth="940.0">
          <font>
             <Font size="24.0" />
          </font>

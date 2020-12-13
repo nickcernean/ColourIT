@@ -80,6 +80,8 @@ public class RequirementList
     return hours;
   }
 
+  public int getRequirementListSize(){return requirements.size();}
+
   public ArrayList<Requirement> getFinishedRequirements()
   {
     ArrayList<Requirement> finished = new ArrayList<>();

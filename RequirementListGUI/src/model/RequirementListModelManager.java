@@ -40,6 +40,8 @@ public class RequirementListModelManager implements RequirementListModel{
 
     @Override public String toString (){return requirementList.toString();}
 
+    @Override public int getRequirementListSize(){return requirementList.getRequirementListSize();}
+
 
 
 
