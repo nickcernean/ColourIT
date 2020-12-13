@@ -30,7 +30,7 @@ public class Task {
      * @param status - the state of the task not started/started/ended/approved/disapproved
      */
     public Task(String taskID,String requirementID, String labelName,String description,Date deadline,double estimatedHours, Status status){
-        if(taskID!=null && !taskID.equals("") && requirementID!=null && !requirementID.equals("") && labelName!=null && !labelName.equals("")
+        if(taskID!=null && !taskID.equals("") && requirementID!=null && !requirementID.equals("") && requirementID.length()==4 && labelName!=null && !labelName.equals("")
          && description!=null && !description.equals("") && deadline!=null && estimatedHours>=0 && status!=null){
         this.taskID=taskID;
         this.requirementID=requirementID;
@@ -41,7 +41,9 @@ public class Task {
         team = new Team();
         this.status=status;
         hoursSpent=0;
-    }}
+    }
+        else
+            throw new IllegalArgumentException("Bad input");}
 
     /**
      * get task identification number

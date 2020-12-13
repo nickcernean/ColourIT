@@ -9,5 +9,6 @@ public class MyApplication extends Application {
         TaskListModel model = new TaskListModelManager();
         ViewHandler view = new ViewHandler(model);
         view.start(primaryStage);
+
     }
 }
