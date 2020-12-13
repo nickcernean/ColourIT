@@ -251,4 +251,14 @@ public class Team
     }
     return text;
   }
+
+  /**
+   * Gets a team member from the arrayList
+   * @param index - location in the list
+   * @return desired team member object
+   */
+  public TeamMember getTeamMember(int index)
+  {
+    return team.get(index);
+  }
 }
