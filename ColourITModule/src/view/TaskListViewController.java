@@ -22,6 +22,7 @@ public class TaskListViewController {
     @FXML private TableColumn<TaskViewModel, Number> estimatedHoursColumn;
     @FXML private TableColumn<TaskViewModel, Number> hoursSpentColumn;
     @FXML private TableColumn<TaskViewModel, Status> statusColumn;
+    @FXML private Label errorLabel;
     private Region root;
     private TaskListModel model;
     private ViewHandler viewHandler;
@@ -43,8 +44,10 @@ public class TaskListViewController {
         hoursSpentColumn.setCellValueFactory(cellData -> cellData.getValue().getSpentHoursProperty());
         statusColumn.setCellValueFactory(cellData -> cellData.getValue().getStatusProperty());
         taskListTable.setItems(viewModel.getList());
+        errorLabel.setText("");
     }
     public void reset(){
+        errorLabel.setText("");
         viewModel.update();
     }
     public Region getRoot(){
@@ -58,22 +61,26 @@ public class TaskListViewController {
         {
             TaskViewModel selectedItem = taskListTable.getSelectionModel()
                     .getSelectedItem();
-
-            boolean remove = confirmation();
+            if(selectedItem==null){
+                throw new IllegalArgumentException("No item selected");
+            }
+            boolean remove = confirmationRemove();
             if (remove)
             {
                 Task task = new Task(selectedItem.getTaskIDProperty().get(),
-                        selectedItem.getRequirementIDProperty().get(),selectedItem.getLabelNameProperty().get(),selectedItem.getDescriptionProperty().get(),new Date(),selectedItem.getEstimatedHoursProperty().get(), Status.STARTED);
+                        selectedItem.getRequirementIDProperty().get(),selectedItem.getLabelNameProperty().get(),selectedItem.getDescriptionProperty().get(),selectedItem.getDeadlineProperty().get(),selectedItem.getEstimatedHoursProperty().get(), Status.STARTED);
                 model.removeTask(task);
                 viewModel.remove(task);
                 taskListTable.getSelectionModel().clearSelection();
             }
+        }catch(IllegalArgumentException e){
+            errorLabel.setText(e.getMessage());
         }
         catch (Exception e){
             e.printStackTrace();
         }
         }
-    private Boolean confirmation(){
+    private boolean confirmationRemove(){
         int index = taskListTable.getSelectionModel().getSelectedIndex();
         TaskViewModel selectedItem = taskListTable.getItems().get(index);
         if (index < 0 || index >= taskListTable.getItems().size())
@@ -89,13 +96,40 @@ public class TaskListViewController {
         return ((result.isPresent()) && (result.get() == ButtonType.OK));
     }
     @FXML private void showTaskDetailsButtonPressed(){
-        viewHandler.openView("taskDetails");
+        try
+        {
+            TaskViewModel selectedItem = taskListTable.getSelectionModel()
+                    .getSelectedItem();
+            if(selectedItem==null){
+                throw new IllegalArgumentException("No item selected");}
+            boolean open= confirmationOpen();
+            if (open)
+            {
+                Task task = new Task(selectedItem.getTaskIDProperty().get(), selectedItem.getRequirementIDProperty().get(),
+                        selectedItem.getLabelNameProperty().get(),selectedItem.getDescriptionProperty().get(),selectedItem.getDeadlineProperty().get(),selectedItem.getEstimatedHoursProperty().get(), Status.STARTED);
+                viewHandler.openView("taskDetails",task);
+                taskListTable.getSelectionModel().clearSelection();
+        }}catch(IllegalArgumentException e){
+            errorLabel.setText(e.getMessage());
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
-    @FXML private void assignTeamMemberButtonPressed(){
-        viewHandler.openView("assignMember");
-    }
-    @FXML private void removeTeamMemberButtonPressed(){
-        viewHandler.openView("removeMember");
+    private boolean confirmationOpen(){
+        int index = taskListTable.getSelectionModel().getSelectedIndex();
+        TaskViewModel selectedItem = taskListTable.getItems().get(index);
+        if (index < 0 || index >= taskListTable.getItems().size())
+        {
+            return false;
+        }
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation");
+        alert.setHeaderText(
+                "Opening task {" + selectedItem.getTaskIDProperty().get() +
+                        selectedItem.getRequirementIDProperty().get() +selectedItem.getLabelNameProperty().get() + selectedItem.getDescriptionProperty().get() + selectedItem.getDeadlineProperty().get() + selectedItem.getEstimatedHoursProperty().get() + selectedItem.getStatusProperty().get() + "}");
+        Optional<ButtonType> result = alert.showAndWait();
+        return ((result.isPresent()) && (result.get() == ButtonType.OK));
     }
     @FXML private void backButtonPressed(){
         viewHandler.openView("requirements");

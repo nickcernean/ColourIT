@@ -1,12 +1,8 @@
 package view;
 
 import javafx.collections.FXCollections;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.Region;
 import model.Date;
 import model.Status;
@@ -20,7 +16,9 @@ public class AddTaskViewController
     @FXML private TextField requirementIDTextField;
     @FXML private TextField labelNameTextField;
     @FXML private TextField taskDescriptionTextField;
-    @FXML private DatePicker deadlineDatePicker;
+    @FXML private TextField day;
+    @FXML private TextField month;
+    @FXML private TextField year;
     @FXML private TextField estimatedHoursTextField;
     @FXML private ChoiceBox<Status> statusChoiceBox;
     @FXML private Label errorLabel;
@@ -49,9 +47,14 @@ public class AddTaskViewController
         this.requirementIDTextField.setText("");
         this.estimatedHoursTextField.setText("");
         this.labelNameTextField.setText("");
+        this.day.setText("");
+        this.month.setText("");
+        this.year.setText("");
         this.taskDescriptionTextField.setText("");
-        statusChoiceBox = new ChoiceBox<>();
+        statusChoiceBox = new ChoiceBox<Status>();
         statusChoiceBox.setItems(FXCollections.observableArrayList(Status.NOTSTARTED,Status.STARTED,Status.ENDED));
+        statusChoiceBox.setTooltip(new Tooltip("Select Task status."));
+        //deadlineDatePicker = new DatePicker();
     }
 
     public Region getRoot()
@@ -64,9 +67,12 @@ public class AddTaskViewController
         errorLabel.setText("");
         try
         {
-            Task task = new Task(taskIDTextField.getText(),requirementIDTextField.getText(),labelNameTextField.getText(),taskDescriptionTextField.getText(),new Date(),Double.parseDouble(estimatedHoursTextField.getText()),Status.STARTED );
+          //  LocalDate date = deadlineDatePicker.getValue();
+
+            Task task = new Task(taskIDTextField.getText(),requirementIDTextField.getText(),labelNameTextField.getText(),taskDescriptionTextField.getText(),new Date(Integer.parseInt(day.getText()),Integer.parseInt(month.getText()),Integer.parseInt(year.getText())),Double.parseDouble(estimatedHoursTextField.getText()),Status.STARTED );
             model.addTask(task);
             viewHandler.openView("taskList");
+           // System.out.println(date);
         }
         catch (NumberFormatException e)
         {

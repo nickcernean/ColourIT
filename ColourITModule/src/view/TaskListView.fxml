@@ -47,27 +47,19 @@
                         <Insets left="5.0" top="10.0" />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#assignTeamMemberButtonPressed" prefHeight="30.0" prefWidth="165.0" text="Assign Team Member">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets left="5.0" top="10.0" />
-                     </VBox.margin>
-                  </Button>
-                  <Button mnemonicParsing="false" onAction="#removeTeamMemberButtonPressed" prefHeight="30.0" prefWidth="165.0" text="Remove Team Member">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets left="5.0" top="10.0" />
-                     </VBox.margin>
-                  </Button>
                   <Button mnemonicParsing="false" onAction="#backButtonPressed" prefHeight="26.0" prefWidth="165.0" text="Back">
                      <VBox.margin>
                         <Insets left="5.0" top="40.0" />
                      </VBox.margin>
                   </Button>
+                  <Label fx:id="errorLabel" text="Error Label" textFill="RED">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="5.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
                </children>
             </VBox>
             <TableView fx:id="taskListTable" prefHeight="401.0" prefWidth="709.0">
